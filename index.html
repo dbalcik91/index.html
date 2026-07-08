@@ -154,7 +154,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 .stat-card.glow-red .icon{background:rgba(255,77,94,.15);color:var(--red);}
 
 /* ============================================================
-   İSTASYON KARTLARI
+   KONSOL KARTLARI
    ============================================================ */
 .station-grid{
   display:grid;grid-template-columns:1fr;gap:14px;
@@ -453,7 +453,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
       </div>
     </div>
 
-    <div class="section-title"><h2>İstasyonlar</h2><span>Canlı durum</span></div>
+    <div class="section-title"><h2>Konsollar</h2><span>Canlı durum</span></div>
     <div class="station-grid" id="dashStationPreview"></div>
   </section>
 
@@ -486,7 +486,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
   <section class="section" id="tab-history">
     <div class="section-title"><h2>Geçmiş</h2><span id="historyCount">0 kayıt</span></div>
     <div class="tools-row">
-      <input type="text" id="searchBox" placeholder="🔍 İstasyon ara...">
+      <input type="text" id="searchBox" placeholder="🔍 Konsol ara...">
       <input type="date" id="dateFilter">
       <button class="btn btn-ghost small" onclick="clearFilters()">Temizle</button>
     </div>
@@ -564,7 +564,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
   </div>
 </div>
 
-<!-- ========================= MODAL: İSTASYON DETAY ========================= -->
+<!-- ========================= MODAL: KONSOL DETAY ========================= -->
 <div class="overlay" id="overlayDetail">
   <div class="modal glass">
     <div class="modal-head">
@@ -699,7 +699,7 @@ const DEFAULT_SETTINGS = {
   products: DEFAULT_PRODUCTS.map(p=>Object.assign({},p)) // ürünler artık {key,label,price} dizisi
 };
 
-/* ---------- VARSAYILAN İSTASYONLAR ---------- */
+/* ---------- VARSAYILAN KONSOLLAR ---------- */
 function defaultStations(){
   return [
     {id:'st1', name:'PS5',   type:'ps5', status:'empty', startTime:null, pendingEnd:null, products:[]},
@@ -805,7 +805,7 @@ function elapsedSeconds(station, nowMs){
 }
 
 /* ================================================================
-   RENDER: İSTASYON KARTLARI
+   RENDER: KONSOL KARTLARI
    ================================================================ */
 function stationBadgeLetters(type){
   if(type==='ps5') return 'PS5';
@@ -878,7 +878,7 @@ function renderStations(){
 }
 
 /* ================================================================
-   İSTASYON İŞLEMLERİ: BAŞLAT / BİTİR / ÜRÜN EKLE
+   KONSOL İŞLEMLERİ: BAŞLAT / BİTİR / ÜRÜN EKLE
    ================================================================ */
 function findStation(id){ return stations.find(s=>s.id===id); }
 
@@ -968,7 +968,7 @@ function beginEndSession(id){
   endSessionSubtotal = total;
 
   document.getElementById('endSummaryBody').innerHTML = `
-    <div class="summary-line"><span>İstasyon</span><b>${escapeHtml(st.name)}</b></div>
+    <div class="summary-line"><span>Konsol</span><b>${escapeHtml(st.name)}</b></div>
     <div class="summary-line"><span>Toplam Süre</span><b>${formatHMS(sec)} (${formatMinutesLabel(sec)})</b></div>
     <div class="summary-line"><span>Oyun Ücreti</span><b>${cost.toFixed(2)} AZN</b></div>
     <div class="summary-line"><span>Ürünler</span><b>${prodCost.toFixed(2)} AZN</b></div>
@@ -1035,7 +1035,7 @@ function confirmEndSession(){
   sessions.unshift(session);
   saveSessions();
 
-  // İstasyonu sıfırla
+  // Konsolu sıfırla
   st.status='empty';
   st.startTime=null;
   st.pendingEnd=null;
@@ -1288,7 +1288,7 @@ function printReport(){
       <div class="print-stat"><b>${formatMinutesLabel(totalDurationSec)}</b><span>Toplam Oyun Süresi</span></div>
     </div>
     <table>
-      <thead><tr><th>İstasyon</th><th>Tarih/Saat</th><th>Süre</th><th>Ürünler</th><th>Tutar</th></tr></thead>
+      <thead><tr><th>Konsol</th><th>Tarih/Saat</th><th>Süre</th><th>Ürünler</th><th>Tutar</th></tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table>
   `;
@@ -1343,7 +1343,7 @@ function openRecordDetail(sessionId){
 
   document.getElementById('recordDetailTitle').innerText = escapeHtml(s.stationName) + ' — İşlem Detayı';
   document.getElementById('recordDetailBody').innerHTML = `
-    <div class="summary-line"><span>İstasyon</span><b>${escapeHtml(s.stationName)}</b></div>
+    <div class="summary-line"><span>Konsol</span><b>${escapeHtml(s.stationName)}</b></div>
     <div class="summary-line"><span>Tarih</span><b>${endD.toLocaleDateString('tr-TR')}</b></div>
     <div class="summary-line"><span>Başlangıç</span><b>${startD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
     <div class="summary-line"><span>Bitiş</span><b>${endD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
