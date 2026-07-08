@@ -418,7 +418,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
   <div class="topbar glass">
     <div class="logo-wrap" id="logoWrap">GC</div>
     <div>
-      <h1 id="salonNameTop">Game Center</h1>
+      <h1 id="salonNameTop">44 Game Center</h1>
       <div class="sub">Yönetim Paneli</div>
     </div>
     <div class="clock">
@@ -427,7 +427,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
     </div>
   </div>
 
-  <!-- ========================= DASHBOARD ========================= -->
+  <!-- ================================================== -->
   <section class="section" id="tab-dashboard">
     <div class="section-title"><h2>Dashboard</h2><span id="dashDate">-</span></div>
     <div class="stat-grid">
@@ -507,7 +507,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
       </div>
       <div class="field">
         <label>Salon Adı</label>
-        <input type="text" id="inputSalonName" placeholder="Game Center">
+        <input type="text" id="inputSalonName" placeholder="44 Game Center">
       </div>
     </div>
 
@@ -515,7 +515,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
       <h4>Saatlik Ücretler (AZN)</h4>
       <div class="field"><label>PS5</label><input type="number" step="0.01" id="rate_ps5"></div>
       <div class="field"><label>PS4</label><input type="number" step="0.01" id="rate_ps4"></div>
-      <div class="field"><label>SIM</label><input type="number" step="0.01" id="rate_sim"></div>
+      <div class="field"><label>PC</label><input type="number" step="0.01" id="rate_pc"></div>
     </div>
 
     <div class="settings-block glass">
@@ -543,7 +543,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <!-- ========================= ALT SEKME ÇUBUĞU ========================= -->
 <nav class="tabbar">
   <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard')"><span class="nav-icon" data-icon="dash"></span><span>Panel</span></button>
-  <button class="tab-btn" data-tab="home" onclick="switchTab('home')"><span class="nav-icon" data-icon="home"></span><span>İstasyonlar</span></button>
+  <button class="tab-btn" data-tab="home" onclick="switchTab('home')"><span class="nav-icon" data-icon="home"></span><span>Konsollar</span></button>
   <button class="tab-btn" data-tab="report" onclick="switchTab('report')"><span class="nav-icon" data-icon="report"></span><span>Rapor</span></button>
   <button class="tab-btn" data-tab="history" onclick="switchTab('history')"><span class="nav-icon" data-icon="history"></span><span>Geçmiş</span></button>
   <button class="tab-btn" data-tab="settings" onclick="switchTab('settings')"><span class="nav-icon" data-icon="settings"></span><span>Ayarlar</span></button>
@@ -643,7 +643,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
 <script>
 /* ================================================================
-   GAME CENTER YÖNETİM UYGULAMASI — Vanilla JS
+   44 GAME CENTER YÖNETİM UYGULAMASI — Vanilla JS
    Tüm veriler localStorage üzerinde saklanır.
    ================================================================ */
 
@@ -693,9 +693,9 @@ const DEFAULT_PRODUCTS = [
 
 /* ---------- VARSAYILAN AYARLAR ---------- */
 const DEFAULT_SETTINGS = {
-  salonName:'Game Center',
+  salonName:'44 Game Center',
   logo:null,
-  rates:{ ps5:3, ps4:2, sim:3 },
+  rates:{ ps5:3, ps4:2, Pc:3 },
   products: DEFAULT_PRODUCTS.map(p=>Object.assign({},p)) // ürünler artık {key,label,price} dizisi
 };
 
@@ -706,8 +706,8 @@ function defaultStations(){
     {id:'st2', name:'PS4-1', type:'ps4', status:'empty', startTime:null, pendingEnd:null, products:[]},
     {id:'st3', name:'PS4-2', type:'ps4', status:'empty', startTime:null, pendingEnd:null, products:[]},
     {id:'st4', name:'PS4-3', type:'ps4', status:'empty', startTime:null, pendingEnd:null, products:[]},
-    {id:'st5', name:'SIM-1', type:'sim', status:'empty', startTime:null, pendingEnd:null, products:[]},
-    {id:'st6', name:'SIM-2', type:'sim', status:'empty', startTime:null, pendingEnd:null, products:[]}
+    {id:'st5', name:'PC-1', type:'pc', status:'empty', startTime:null, pendingEnd:null, products:[]},
+    {id:'st6', name:'PC-2', type:'pc', status:'empty', startTime:null, pendingEnd:null, products:[]}
   ];
 }
 
@@ -810,7 +810,7 @@ function elapsedSeconds(station, nowMs){
 function stationBadgeLetters(type){
   if(type==='ps5') return 'PS5';
   if(type==='ps4') return 'PS4';
-  if(type==='sim') return 'SIM';
+  if(type==='pc') return 'PC';
   return '?';
 }
 
@@ -1280,7 +1280,7 @@ function printReport(){
   }
 
   document.getElementById('printArea').innerHTML = `
-    <h1>${escapeHtml(settings.salonName || 'Game Center')}</h1>
+    <h1>${escapeHtml(settings.salonName || '44 Game Center')}</h1>
     <h2>${periodLabel} Rapor — ${range.label}</h2>
     <div class="print-stats">
       <div class="print-stat"><b>${revenue.toFixed(2)} AZN</b><span>Toplam Kazanç</span></div>
@@ -1425,7 +1425,7 @@ function renderSettingsForm(){
   document.getElementById('inputSalonName').value = settings.salonName;
   document.getElementById('rate_ps5').value = settings.rates.ps5;
   document.getElementById('rate_ps4').value = settings.rates.ps4;
-  document.getElementById('rate_sim').value = settings.rates.sim;
+  document.getElementById('rate_pc').value = settings.rates.pc;
 
   // Mevcut ürünler: ad + fiyat düzenlenebilir, her satırda silme butonu
   const rowsHtml = settings.products.map(p=>`
@@ -1486,7 +1486,7 @@ function updateLogoPreview(){
   const previewSettings = document.getElementById('settingsLogoPreview');
   const previewTop = document.getElementById('logoWrap');
   const nameTop = document.getElementById('salonNameTop');
-  nameTop.innerText = settings.salonName || 'Game Center';
+  nameTop.innerText = settings.salonName || '44 Game Center';
   if(settings.logo){
     previewSettings.innerHTML = `<img src="${settings.logo}">`;
     previewTop.innerHTML = `<img src="${settings.logo}">`;
@@ -1497,14 +1497,14 @@ function updateLogoPreview(){
 }
 function saveSettingsForm(){
   const name = document.getElementById('inputSalonName').value.trim();
-  settings.salonName = name || 'Game Center';
+  settings.salonName = name || '44 Game Center';
 
   const ps5 = parseFloat(document.getElementById('rate_ps5').value);
   const ps4 = parseFloat(document.getElementById('rate_ps4').value);
-  const sim = parseFloat(document.getElementById('rate_sim').value);
+  const pc = parseFloat(document.getElementById('rate_pc').value);
   settings.rates.ps5 = isNaN(ps5) ? settings.rates.ps5 : ps5;
   settings.rates.ps4 = isNaN(ps4) ? settings.rates.ps4 : ps4;
-  settings.rates.sim = isNaN(sim) ? settings.rates.sim : sim;
+  settings.rates.pc = isNaN(pc) ? settings.rates.pc : pc;
 
   // Mevcut ürünlerin ad/fiyat düzenlemelerini kaydet (ekleme/silme zaten anında kaydediliyor)
   settings.products.forEach(p=>{
@@ -1712,7 +1712,7 @@ document.getElementById('dateFilter').addEventListener('change', renderHistory);
 function setupPWA(){
   try{
     const manifest = {
-      name: settings.salonName || 'Game Center Yönetim',
+      name: settings.salonName || '44 Game Center Yönetim',
       short_name: 'GameCenter',
       start_url: './',
       display: 'standalone',
