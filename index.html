@@ -180,9 +180,9 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 .st-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .st-name{display:flex;align-items:center;gap:9px;}
 .st-name .type-badge{
-  width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  min-width:36px;height:36px;padding:0 7px;border-radius:11px;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,#1b1b22,#101014);border:1px solid rgba(255,255,255,.08);
-  font-size:14px;font-weight:800;color:var(--orange-2);
+  font-size:13px;font-weight:800;color:var(--orange-2);white-space:nowrap;
 }
 .st-name h3{margin:0;font-size:16px;font-weight:800;}
 .st-name .rate{font-size:11px;color:var(--muted);}
@@ -351,6 +351,10 @@ input,textarea{-webkit-user-select:text;user-select:text;}
   box-shadow:0 0 16px rgba(255,122,26,.4);
 }
 .period-btn:active{transform:scale(.96);}
+.lang-btn.selected{
+  background:linear-gradient(135deg,var(--orange),#c9550a);color:#fff;border-color:transparent;
+  box-shadow:0 0 16px rgba(255,122,26,.4);
+}
 .period-nav{
   display:flex;align-items:center;gap:10px;margin-bottom:10px;
 }
@@ -462,7 +466,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
     <div class="logo-wrap" id="logoWrap">GC</div>
     <div>
       <h1 id="salonNameTop">Game Center</h1>
-      <div class="sub">Yönetim Paneli</div>
+      <div class="sub" data-i18n="topbar.sub">Yönetim Paneli</div>
     </div>
     <div class="clock">
       <div class="t" id="clockTime">00:00:00</div>
@@ -478,68 +482,77 @@ input,textarea{-webkit-user-select:text;user-select:text;}
       <div class="stat-card glass glow-orange">
         <div class="icon" data-icon="money"></div>
         <div class="val" id="statRevenue">0.00 AZN</div>
-        <div class="lbl">Bugünkü Ciro</div>
+        <div class="lbl" data-i18n="dash.revenue">Bugünkü Ciro</div>
       </div>
       <div class="stat-card glass">
         <div class="icon" data-icon="user"></div>
         <div class="val" id="statActive">0</div>
-        <div class="lbl">Aktif Müşteri</div>
+        <div class="lbl" data-i18n="dash.active">Aktif Müşteri</div>
       </div>
       <div class="stat-card glass glow-green">
         <div class="icon" data-icon="check"></div>
         <div class="val" id="statEmpty">0</div>
-        <div class="lbl">Boş Cihaz</div>
+        <div class="lbl" data-i18n="dash.empty">Boş Cihaz</div>
       </div>
       <div class="stat-card glass glow-red">
         <div class="icon" data-icon="x"></div>
         <div class="val" id="statBusy">0</div>
-        <div class="lbl">Dolu Cihaz</div>
+        <div class="lbl" data-i18n="dash.busy">Dolu Cihaz</div>
       </div>
     </div>
 
-    <div class="section-title"><h2>Konsollar</h2><span>Canlı durum</span></div>
+    <div class="section-title"><h2 data-i18n="dash.consoles">Konsollar</h2><span data-i18n="dash.liveStatus">Canlı durum</span></div>
     <div class="station-grid" id="dashStationPreview"></div>
   </section>
 
   <!-- ========================= ANA SAYFA / İSTASYONLAR ========================= -->
   <section class="section" id="tab-home">
-    <div class="section-title"><h2>Oyun Konsolları</h2><span id="homeSub">6 konsol</span></div>
+    <div class="section-title"><h2 data-i18n="home.title">Oyun Konsolları</h2><span id="homeSub">6 konsol</span></div>
     <div class="station-grid" id="stationGrid"></div>
   </section>
 
   <!-- ========================= RAPOR ========================= -->
   <section class="section" id="tab-report">
-    <div class="section-title"><h2>Rapor</h2></div>
+    <div class="section-title"><h2 data-i18n="report.title">Rapor</h2></div>
     <div class="period-tabs">
-      <button class="period-btn active" data-period="day" onclick="setReportPeriod('day')">Günlük</button>
-      <button class="period-btn" data-period="week" onclick="setReportPeriod('week')">Haftalık</button>
-      <button class="period-btn" data-period="month" onclick="setReportPeriod('month')">Aylık</button>
+      <button class="period-btn active" data-period="day" onclick="setReportPeriod('day')" data-i18n="report.day">Günlük</button>
+      <button class="period-btn" data-period="week" onclick="setReportPeriod('week')" data-i18n="report.week">Haftalık</button>
+      <button class="period-btn" data-period="month" onclick="setReportPeriod('month')" data-i18n="report.month">Aylık</button>
     </div>
     <div class="period-nav">
       <button class="nav-arrow-btn" onclick="changePeriodOffset(1)" title="Önceki dönem">‹</button>
       <div class="period-nav-label" id="reportDate">-</div>
       <button class="nav-arrow-btn" id="nextPeriodBtn" onclick="changePeriodOffset(-1)" title="Sonraki dönem">›</button>
     </div>
-    <button class="today-reset-btn" id="todayResetBtn" onclick="resetPeriodOffset()" style="display:none">↻ Bugüne Dön</button>
+    <button class="today-reset-btn" id="todayResetBtn" onclick="resetPeriodOffset()" style="display:none" data-i18n="report.todayBtn">↻ Bugüne Dön</button>
     <div class="report-grid" id="reportGrid"></div>
-    <button class="btn btn-primary btn-full" style="margin-top:14px" onclick="openPeriodList()">📋 Bu Dönemin İşlemlerini Gör</button>
-    <button class="btn btn-ghost btn-full" style="margin-top:10px" onclick="printReport()">🖨️ Raporu PDF Olarak Kaydet</button>
+    <button class="btn btn-primary btn-full" style="margin-top:14px" onclick="openPeriodList()" data-i18n="report.viewTx">📋 Bu Dönemin İşlemlerini Gör</button>
+    <button class="btn btn-ghost btn-full" style="margin-top:10px" onclick="printReport()" data-i18n="report.savePdf">🖨️ Raporu PDF Olarak Kaydet</button>
   </section>
 
   <!-- ========================= GEÇMİŞ ========================= -->
   <section class="section" id="tab-history">
-    <div class="section-title"><h2>Geçmiş</h2><span id="historyCount">0 kayıt</span></div>
+    <div class="section-title"><h2 data-i18n="history.title">Geçmiş</h2><span id="historyCount">0 kayıt</span></div>
     <div class="tools-row">
-      <input type="text" id="searchBox" placeholder="🔍 Konsol ara...">
+      <input type="text" id="searchBox" placeholder="🔍 Konsol ara..." data-i18n-ph="history.search">
       <input type="date" id="dateFilter">
-      <button class="btn btn-ghost small" onclick="clearFilters()">Temizle</button>
+      <button class="btn btn-ghost small" onclick="clearFilters()" data-i18n="history.clear">Temizle</button>
     </div>
     <div id="historyList"></div>
   </section>
 
   <!-- ========================= AYARLAR ========================= -->
   <section class="section" id="tab-settings">
-    <div class="section-title"><h2>Ayarlar</h2><span>Fiyat &amp; salon bilgileri</span></div>
+    <div class="section-title"><h2 data-i18n="settings.title">Ayarlar</h2><span data-i18n="settings.subtitle">Fiyat &amp; salon bilgileri</span></div>
+
+    <div class="settings-block glass">
+      <h4 id="langBlockLabel" data-i18n="settings.language">Dil</h4>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost lang-btn" data-lang="az" onclick="setLanguage('az')" style="flex:1">Azərbaycanca</button>
+        <button class="btn btn-ghost lang-btn" data-lang="tr" onclick="setLanguage('tr')" style="flex:1">Türkçe</button>
+        <button class="btn btn-ghost lang-btn" data-lang="ru" onclick="setLanguage('ru')" style="flex:1">Русский</button>
+      </div>
+    </div>
 
     <div class="settings-block glass">
       <h4>Salon Bilgileri</h4>
@@ -556,19 +569,28 @@ input,textarea{-webkit-user-select:text;user-select:text;}
     </div>
 
     <div class="settings-block glass">
-      <h4>Saatlik Ücretler (AZN)</h4>
-      <div class="field"><label>PS5</label><input type="number" step="0.01" id="rate_ps5"></div>
-      <div class="field"><label>PS4</label><input type="number" step="0.01" id="rate_ps4"></div>
-      <div class="field"><label>SIM</label><input type="number" step="0.01" id="rate_sim"></div>
+      <h4 data-i18n="settings.hourlyRates">Saatlik Ücretler (AZN)</h4>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+        Konsol tipi ekleyip her biri için saatlik ücret belirleyebilirsin (örn. PS5, Xbox, VR, Bilardo...).
+      </div>
+      <div id="deviceTypeSettingsList"></div>
     </div>
 
     <div class="settings-block glass">
-      <h4>Ürün Fiyatları (AZN)</h4>
+      <h4 data-i18n="settings.stationMgmt">Konsol Yönetimi</h4>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+        Salonundaki fiziksel konsolları/istasyonları buradan ekleyebilir veya kaldırabilirsin.
+      </div>
+      <div id="stationSettingsList"></div>
+    </div>
+
+    <div class="settings-block glass">
+      <h4 data-i18n="settings.productPrices">Ürün Fiyatları (AZN)</h4>
       <div id="productSettingsList"></div>
     </div>
 
     <div class="settings-block glass">
-      <h4>Kombo Paketler</h4>
+      <h4 data-i18n="settings.comboPackages">Kombo Paketler</h4>
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
         Süre + ürünü tek fiyata birleştiren hazır paketler (örn: "3 Saat PS5 + 1 Kola"). Başlat ekranında konsol tipine göre listelenir; ücret paket fiyatına sabitlenir.
       </div>
@@ -576,29 +598,29 @@ input,textarea{-webkit-user-select:text;user-select:text;}
     </div>
 
     <div class="settings-block glass">
-      <h4>Personel</h4>
+      <h4 data-i18n="settings.staff">Personel</h4>
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
         Vardiyaya giren personeli üst bardaki "Vardiya" rozetinden seçebilirsiniz; kayıtlar personele göre raporlanır.
       </div>
       <div id="staffSettingsList"></div>
     </div>
 
-    <button class="btn btn-primary btn-full" onclick="saveSettingsForm()"><span data-icon="save" style="display:inline-flex"></span> Ayarları Kaydet</button>
+    <button class="btn btn-primary btn-full" onclick="saveSettingsForm()"><span data-icon="save" style="display:inline-flex"></span> <span data-i18n="settings.saveBtn">Ayarları Kaydet</span></button>
 
     <div class="settings-block glass" style="margin-top:14px">
-      <h4>Yedekleme</h4>
+      <h4 data-i18n="settings.backup">Yedekleme</h4>
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
         Tüm verilerin (konsollar, geçmiş, ayarlar) tek bir dosyaya kaydedilir. Telefon değiştirirken veya yedek almak için kullan.
       </div>
-      <button class="btn btn-ghost btn-full" onclick="exportBackup()" style="margin-bottom:10px">📥 Yedeği İndir (Dosyalara Kaydet)</button>
+      <button class="btn btn-ghost btn-full" onclick="exportBackup()" style="margin-bottom:10px" data-i18n="settings.downloadBackup">📥 Yedeği İndir (Dosyalara Kaydet)</button>
       <label class="btn btn-ghost btn-full" style="display:flex">
-        📤 Yedekten Geri Yükle
+        <span data-i18n="settings.restoreBackup">📤 Yedekten Geri Yükle</span>
         <input type="file" accept="application/json,.json" id="restoreInput" style="display:none">
       </label>
     </div>
 
     <div class="settings-block glass" style="margin-top:14px">
-      <h4>Bulut Yedekleme</h4>
+      <h4 data-i18n="settings.cloudBackup">Bulut Yedekleme</h4>
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
         Verilerini internet üzerinden yedeklemek için ücretsiz bir <a href="https://jsonbin.io" target="_blank" rel="noopener" style="color:var(--orange-2)">jsonbin.io</a> hesabı aç, yeni bir "Bin" oluştur ve aşağıya Bin ID ile X-Master-Key bilgilerini yapıştır.
       </div>
@@ -608,29 +630,30 @@ input,textarea{-webkit-user-select:text;user-select:text;}
         <input type="checkbox" id="cloudAutoSync" style="width:auto;flex:none">
         <label style="margin:0">Her değişiklikte otomatik buluta yedekle</label>
       </div>
-      <button class="btn btn-primary btn-full" onclick="saveCloudSettings()" style="margin-bottom:10px">💾 Bulut Ayarlarını Kaydet</button>
-      <button class="btn btn-ghost btn-full" onclick="cloudUpload(true)" style="margin-bottom:10px">☁️ Buluta Yükle</button>
-      <button class="btn btn-ghost btn-full" onclick="cloudDownload()">☁️ Buluttan İndir</button>
+      <button class="btn btn-primary btn-full" onclick="saveCloudSettings()" style="margin-bottom:10px" data-i18n="settings.saveCloudBtn">💾 Bulut Ayarlarını Kaydet</button>
+      <button class="btn btn-ghost btn-full" onclick="cloudUpload(true)" style="margin-bottom:10px" data-i18n="settings.uploadCloud">☁️ Buluta Yükle</button>
+      <button class="btn btn-ghost btn-full" onclick="cloudDownload()" data-i18n="settings.downloadCloud">☁️ Buluttan İndir</button>
       <div id="cloudLastSync" style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center"></div>
     </div>
   </section>
+
 
 </div>
 
 <!-- ========================= ALT SEKME ÇUBUĞU ========================= -->
 <nav class="tabbar">
-  <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard')"><span class="nav-icon" data-icon="dash"></span><span>Panel</span></button>
-  <button class="tab-btn" data-tab="home" onclick="switchTab('home')"><span class="nav-icon" data-icon="home"></span><span>Konsollar</span></button>
-  <button class="tab-btn" data-tab="report" onclick="switchTab('report')"><span class="nav-icon" data-icon="report"></span><span>Rapor</span></button>
-  <button class="tab-btn" data-tab="history" onclick="switchTab('history')"><span class="nav-icon" data-icon="history"></span><span>Geçmiş</span></button>
-  <button class="tab-btn" data-tab="settings" onclick="switchTab('settings')"><span class="nav-icon" data-icon="settings"></span><span>Ayarlar</span></button>
+  <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard')"><span class="nav-icon" data-icon="dash"></span><span data-i18n="tab.dashboard">Panel</span></button>
+  <button class="tab-btn" data-tab="home" onclick="switchTab('home')"><span class="nav-icon" data-icon="home"></span><span data-i18n="tab.home">Konsollar</span></button>
+  <button class="tab-btn" data-tab="report" onclick="switchTab('report')"><span class="nav-icon" data-icon="report"></span><span data-i18n="tab.report">Rapor</span></button>
+  <button class="tab-btn" data-tab="history" onclick="switchTab('history')"><span class="nav-icon" data-icon="history"></span><span data-i18n="tab.history">Geçmiş</span></button>
+  <button class="tab-btn" data-tab="settings" onclick="switchTab('settings')"><span class="nav-icon" data-icon="settings"></span><span data-i18n="tab.settings">Ayarlar</span></button>
 </nav>
 
 <!-- ========================= MODAL: BAŞLATMA SEÇİMİ (Açık/Paket) ========================= -->
 <div class="overlay" id="overlayStart">
   <div class="modal glass">
     <div class="modal-head">
-      <h3 id="startModalTitle">Başlat</h3>
+      <h3 id="startModalTitle" data-i18n="modal.start">Başlat</h3>
       <button class="close-x" onclick="closeModal('overlayStart')">✕</button>
     </div>
     <div id="startModalBody"></div>
@@ -641,13 +664,13 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayProduct">
   <div class="modal glass">
     <div class="modal-head">
-      <h3>Ürün Ekle</h3>
+      <h3 data-i18n="modal.productAdd">Ürün Ekle</h3>
       <button class="close-x" onclick="closeModal('overlayProduct')">✕</button>
     </div>
     <div id="productModalList"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="closeModal('overlayProduct')">Kapat</button>
-      <button class="btn btn-primary" onclick="confirmAddProducts()">Ekle</button>
+      <button class="btn btn-ghost" onclick="closeModal('overlayProduct')" data-i18n="modal.close">Kapat</button>
+      <button class="btn btn-primary" onclick="confirmAddProducts()" data-i18n="modal.add">Ekle</button>
     </div>
   </div>
 </div>
@@ -656,12 +679,12 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayDetail">
   <div class="modal glass">
     <div class="modal-head">
-      <h3 id="detailTitle">Detay</h3>
+      <h3 id="detailTitle" data-i18n="modal.detail">Detay</h3>
       <button class="close-x" onclick="closeModal('overlayDetail')">✕</button>
     </div>
     <div id="detailBody"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayDetail')">Kapat</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayDetail')" data-i18n="modal.close">Kapat</button>
     </div>
   </div>
 </div>
@@ -670,12 +693,12 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayRecordDetail">
   <div class="modal glass">
     <div class="modal-head">
-      <h3 id="recordDetailTitle">İşlem Detayı</h3>
+      <h3 id="recordDetailTitle" data-i18n="modal.recordDetail">İşlem Detayı</h3>
       <button class="close-x" onclick="closeModal('overlayRecordDetail')">✕</button>
     </div>
     <div id="recordDetailBody"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayRecordDetail')">Kapat</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayRecordDetail')" data-i18n="modal.close">Kapat</button>
     </div>
   </div>
 </div>
@@ -684,12 +707,12 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayPeriodList">
   <div class="modal glass">
     <div class="modal-head">
-      <h3 id="periodListTitle">Dönem İşlemleri</h3>
+      <h3 id="periodListTitle" data-i18n="modal.periodList">Dönem İşlemleri</h3>
       <button class="close-x" onclick="closeModal('overlayPeriodList')">✕</button>
     </div>
     <div id="periodListBody"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayPeriodList')">Kapat</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayPeriodList')" data-i18n="modal.close">Kapat</button>
     </div>
   </div>
 </div>
@@ -698,13 +721,13 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayEnd">
   <div class="modal glass">
     <div class="modal-head">
-      <h3>Oturum Özeti</h3>
+      <h3 data-i18n="modal.sessionSummary">Oturum Özeti</h3>
       <button class="close-x" onclick="cancelEndSession()">✕</button>
     </div>
     <div id="endSummaryBody"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="cancelEndSession()">Vazgeç</button>
-      <button class="btn btn-danger" onclick="confirmEndSession()">Oturumu Kaydet</button>
+      <button class="btn btn-ghost" onclick="cancelEndSession()" data-i18n="modal.cancel">Vazgeç</button>
+      <button class="btn btn-danger" onclick="confirmEndSession()" data-i18n="modal.saveSession">Oturumu Kaydet</button>
     </div>
   </div>
 </div>
@@ -713,7 +736,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayStaff">
   <div class="modal glass" style="max-width:420px">
     <div class="modal-head">
-      <h3>Vardiyayı Seç</h3>
+      <h3 data-i18n="modal.staffSelect">Vardiyayı Seç</h3>
       <button class="close-x" onclick="closeModal('overlayStaff')">✕</button>
     </div>
     <div id="staffModalBody"></div>
@@ -724,13 +747,13 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 <div class="overlay" id="overlayConfirm">
   <div class="modal glass" style="max-width:380px">
     <div class="modal-head">
-      <h3 id="confirmTitle">Emin misiniz?</h3>
+      <h3 id="confirmTitle" data-i18n="modal.confirmTitle">Emin misiniz?</h3>
       <button class="close-x" onclick="confirmNo()">✕</button>
     </div>
     <div id="confirmBody" style="font-size:13.5px;color:var(--muted);margin-bottom:6px;"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="confirmNo()">Vazgeç</button>
-      <button class="btn btn-danger" onclick="confirmYes()">Evet, Sil</button>
+      <button class="btn btn-ghost" onclick="confirmNo()" data-i18n="modal.cancel">Vazgeç</button>
+      <button class="btn btn-danger" onclick="confirmYes()" data-i18n="modal.yesDelete">Evet, Sil</button>
     </div>
   </div>
 </div>
@@ -775,6 +798,135 @@ function renderStaticIcons(){
   });
 }
 
+/* ================================================================
+   ÇOKLU DİL DESTEĞİ (Azərbaycan dili / Türkçe / Русский)
+   ================================================================ */
+const I18N = {
+  tr: {
+    'topbar.sub':'Yönetim Paneli',
+    'tab.dashboard':'Panel','tab.home':'Konsollar','tab.report':'Rapor','tab.history':'Geçmiş','tab.settings':'Ayarlar',
+    'dash.revenue':'Bugünkü Ciro','dash.active':'Aktif Müşteri','dash.empty':'Boş Cihaz','dash.busy':'Dolu Cihaz',
+    'dash.consoles':'Konsollar','dash.liveStatus':'Canlı durum',
+    'home.title':'Oyun Konsolları',
+    'report.title':'Rapor','report.day':'Günlük','report.week':'Haftalık','report.month':'Aylık',
+    'report.viewTx':'📋 Bu Dönemin İşlemlerini Gör','report.savePdf':'🖨️ Raporu PDF Olarak Kaydet',
+    'report.todayBtn':'↻ Bugüne Dön','report.totalRevenue':'Toplam Kazanç','report.totalCustomers':'Toplam Müşteri',
+    'report.topDevice':'En Çok Kullanılan Cihaz','report.topProduct':'En Çok Satılan Ürün','report.totalTime':'Toplam Oyun Süresi',
+    'report.cashDist':'Kasa Dağılımı','report.cash':'Nakit','report.card':'Kart','report.other':'Diğer',
+    'report.staffRevenue':'Personel Bazında Ciro','report.noRecords':'Bu dönemde kayıt yok.',
+    'history.title':'Geçmiş','history.search':'🔍 Konsol ara...','history.clear':'Temizle','history.noRecords':'Kayıt bulunamadı.',
+    'settings.title':'Ayarlar','settings.subtitle':'Fiyat & salon bilgileri',
+    'settings.language':'Dil','settings.salonInfo':'Salon Bilgileri','settings.salonName':'Salon Adı','settings.logoSelect':'Logo Seç',
+    'settings.hourlyRates':'Saatlik Ücretler (AZN)','settings.stationMgmt':'Konsol Yönetimi','settings.productPrices':'Ürün Fiyatları (AZN)',
+    'settings.comboPackages':'Kombo Paketler','settings.staff':'Personel','settings.saveBtn':'Ayarları Kaydet',
+    'settings.backup':'Yedekleme','settings.downloadBackup':'📥 Yedeği İndir (Dosyalara Kaydet)','settings.restoreBackup':'📤 Yedekten Geri Yükle',
+    'settings.cloudBackup':'Bulut Yedekleme','settings.uploadCloud':'☁️ Buluta Yükle','settings.downloadCloud':'☁️ Buluttan İndir',
+    'settings.saveCloudBtn':'💾 Bulut Ayarlarını Kaydet',
+    'station.empty':'BOŞ','station.busy':'DOLU','station.ending':'BİTİRİLİYOR',
+    'station.start':'Başlat','station.end':'Bitir','station.addProduct':'Ürün','station.detail':'Detay',
+    'station.notInUse':'Bu konsol şu anda kullanılmıyor.','station.noSession':'Oturum başlatılmadı',
+    'modal.start':'Başlat','modal.productAdd':'Ürün Ekle','modal.close':'Kapat','modal.cancel':'Vazgeç',
+    'modal.detail':'Detay','modal.recordDetail':'İşlem Detayı','modal.periodList':'Dönem İşlemleri',
+    'modal.sessionSummary':'Oturum Özeti','modal.saveSession':'Oturumu Kaydet','modal.confirmTitle':'Emin misiniz?',
+    'modal.yesDelete':'Evet, Sil','modal.staffSelect':'Vardiyayı Seç','modal.add':'Ekle',
+    'pay.cash':'💵 Nakit','pay.card':'💳 Kart','pay.other':'🔖 Diğer',
+    'staff.pillDefault':'👤 Vardiya Seç','staff.none':'— Vardiya Belirtilmedi —',
+  },
+  az: {
+    'topbar.sub':'İdarəetmə Paneli',
+    'tab.dashboard':'Panel','tab.home':'Konsollar','tab.report':'Hesabat','tab.history':'Tarixçə','tab.settings':'Ayarlar',
+    'dash.revenue':'Bugünkü Gəlir','dash.active':'Aktiv Müştəri','dash.empty':'Boş Cihaz','dash.busy':'Dolu Cihaz',
+    'dash.consoles':'Konsollar','dash.liveStatus':'Canlı status',
+    'home.title':'Oyun Konsolları',
+    'report.title':'Hesabat','report.day':'Günlük','report.week':'Həftəlik','report.month':'Aylıq',
+    'report.viewTx':'📋 Bu Dövrün Əməliyyatlarına Bax','report.savePdf':'🖨️ Hesabatı PDF Kimi Saxla',
+    'report.todayBtn':'↻ Bugünə Qayıt','report.totalRevenue':'Ümumi Gəlir','report.totalCustomers':'Ümumi Müştəri',
+    'report.topDevice':'Ən Çox İstifadə Olunan Cihaz','report.topProduct':'Ən Çox Satılan Məhsul','report.totalTime':'Ümumi Oyun Vaxtı',
+    'report.cashDist':'Kassa Bölgüsü','report.cash':'Nağd','report.card':'Kart','report.other':'Digər',
+    'report.staffRevenue':'İşçiyə Görə Gəlir','report.noRecords':'Bu dövrdə qeyd yoxdur.',
+    'history.title':'Tarixçə','history.search':'🔍 Konsol axtar...','history.clear':'Təmizlə','history.noRecords':'Qeyd tapılmadı.',
+    'settings.title':'Ayarlar','settings.subtitle':'Qiymət & salon məlumatları',
+    'settings.language':'Dil','settings.salonInfo':'Salon Məlumatları','settings.salonName':'Salon Adı','settings.logoSelect':'Loqo Seç',
+    'settings.hourlyRates':'Saatlıq Qiymətlər (AZN)','settings.stationMgmt':'Konsol İdarəetməsi','settings.productPrices':'Məhsul Qiymətləri (AZN)',
+    'settings.comboPackages':'Kombo Paketlər','settings.staff':'Personal','settings.saveBtn':'Ayarları Yadda Saxla',
+    'settings.backup':'Ehtiyat Nüsxə','settings.downloadBackup':'📥 Ehtiyat Nüsxəni Yüklə (Fayllara Saxla)','settings.restoreBackup':'📤 Ehtiyat Nüsxədən Bərpa Et',
+    'settings.cloudBackup':'Bulud Ehtiyat Nüsxəsi','settings.uploadCloud':'☁️ Buluda Yüklə','settings.downloadCloud':'☁️ Buluddan Endir',
+    'settings.saveCloudBtn':'💾 Bulud Ayarlarını Saxla',
+    'station.empty':'BOŞ','station.busy':'DOLU','station.ending':'BİTİR',
+    'station.start':'Başlat','station.end':'Bitir','station.addProduct':'Məhsul','station.detail':'Detal',
+    'station.notInUse':'Bu konsol hazırda istifadə olunmur.','station.noSession':'Sessiya başladılmayıb',
+    'modal.start':'Başlat','modal.productAdd':'Məhsul Əlavə Et','modal.close':'Bağla','modal.cancel':'İmtina',
+    'modal.detail':'Detal','modal.recordDetail':'Əməliyyat Detalı','modal.periodList':'Dövrün Əməliyyatları',
+    'modal.sessionSummary':'Sessiya Xülasəsi','modal.saveSession':'Sessiyani Yadda Saxla','modal.confirmTitle':'Əminsiniz?',
+    'modal.yesDelete':'Bəli, Sil','modal.staffSelect':'Növbəni Seç','modal.add':'Əlavə Et',
+    'pay.cash':'💵 Nağd','pay.card':'💳 Kart','pay.other':'🔖 Digər',
+    'staff.pillDefault':'👤 Növbə Seç','staff.none':'— Növbə Təyin Olunmayıb —',
+  },
+  ru: {
+    'topbar.sub':'Панель Управления',
+    'tab.dashboard':'Панель','tab.home':'Консоли','tab.report':'Отчёт','tab.history':'История','tab.settings':'Настройки',
+    'dash.revenue':'Выручка Сегодня','dash.active':'Активные Клиенты','dash.empty':'Свободно','dash.busy':'Занято',
+    'dash.consoles':'Консоли','dash.liveStatus':'Статус в реальном времени',
+    'home.title':'Игровые Консоли',
+    'report.title':'Отчёт','report.day':'День','report.week':'Неделя','report.month':'Месяц',
+    'report.viewTx':'📋 Показать Операции за Период','report.savePdf':'🖨️ Сохранить Отчёт как PDF',
+    'report.todayBtn':'↻ Вернуться к Сегодня','report.totalRevenue':'Общая Выручка','report.totalCustomers':'Всего Клиентов',
+    'report.topDevice':'Самое Используемое Устройство','report.topProduct':'Самый Продаваемый Товар','report.totalTime':'Общее Игровое Время',
+    'report.cashDist':'Распределение Кассы','report.cash':'Наличные','report.card':'Карта','report.other':'Другое',
+    'report.staffRevenue':'Выручка по Сотрудникам','report.noRecords':'Нет записей за этот период.',
+    'history.title':'История','history.search':'🔍 Поиск консоли...','history.clear':'Очистить','history.noRecords':'Записи не найдены.',
+    'settings.title':'Настройки','settings.subtitle':'Цены и информация о заведении',
+    'settings.language':'Язык','settings.salonInfo':'Информация о Заведении','settings.salonName':'Название Заведения','settings.logoSelect':'Выбрать Логотип',
+    'settings.hourlyRates':'Почасовые Тарифы (AZN)','settings.stationMgmt':'Управление Консолями','settings.productPrices':'Цены на Товары (AZN)',
+    'settings.comboPackages':'Комбо-Пакеты','settings.staff':'Персонал','settings.saveBtn':'Сохранить Настройки',
+    'settings.backup':'Резервное Копирование','settings.downloadBackup':'📥 Скачать Резервную Копию','settings.restoreBackup':'📤 Восстановить из Резервной Копии',
+    'settings.cloudBackup':'Облачное Резервное Копирование','settings.uploadCloud':'☁️ Загрузить в Облако','settings.downloadCloud':'☁️ Скачать из Облака',
+    'settings.saveCloudBtn':'💾 Сохранить Облачные Настройки',
+    'station.empty':'СВОБОДНО','station.busy':'ЗАНЯТО','station.ending':'ЗАВЕРШЕНИЕ',
+    'station.start':'Начать','station.end':'Завершить','station.addProduct':'Товар','station.detail':'Детали',
+    'station.notInUse':'Эта консоль сейчас не используется.','station.noSession':'Сессия не начата',
+    'modal.start':'Начать','modal.productAdd':'Добавить Товар','modal.close':'Закрыть','modal.cancel':'Отмена',
+    'modal.detail':'Детали','modal.recordDetail':'Детали Операции','modal.periodList':'Операции за Период',
+    'modal.sessionSummary':'Итог Сессии','modal.saveSession':'Сохранить Сессию','modal.confirmTitle':'Вы уверены?',
+    'modal.yesDelete':'Да, Удалить','modal.staffSelect':'Выбрать Смену','modal.add':'Добавить',
+    'pay.cash':'💵 Наличные','pay.card':'💳 Карта','pay.other':'🔖 Другое',
+    'staff.pillDefault':'👤 Выбрать Смену','staff.none':'— Смена Не Указана —',
+  }
+};
+function t(key){
+  const lang = (typeof settings!=='undefined' && settings && settings.language) ? settings.language : 'tr';
+  return (I18N[lang] && I18N[lang][key]) || I18N.tr[key] || key;
+}
+function applyLanguage(){
+  document.documentElement.lang = settings.language || 'tr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    el.innerText = t(key);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-ph');
+    el.placeholder = t(key);
+  });
+  const langLabel = document.getElementById('langBlockLabel');
+  if(langLabel) langLabel.innerText = t('settings.language');
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('selected', b.dataset.lang === (settings.language||'tr'));
+  });
+}
+function setLanguage(lang){
+  if(!['tr','az','ru'].includes(lang)) return;
+  settings.language = lang;
+  saveSettings();
+  applyLanguage();
+  // Görünen sekmeye göre dinamik metinleri yeniden çiz
+  renderStations();
+  renderDashboard();
+  renderReport();
+  renderHistory();
+  renderSettingsForm();
+  renderStaffPill();
+}
+
 /* ---------- LOCALSTORAGE ANAHTARLARI ---------- */
 const LS_SETTINGS = 'gcm_settings_v1';
 const LS_STATIONS = 'gcm_stations_v1';
@@ -794,9 +946,14 @@ const DEFAULT_PRODUCTS = [
 const DEFAULT_SETTINGS = {
   salonName:'Game Center',
   logo:null,
-  rates:{ ps5:3, ps4:2, sim:3 },
+  language:'tr', // 'tr' | 'az' | 'ru'
+  deviceTypes:[
+    {key:'ps5', label:'PS5', rate:3},
+    {key:'ps4', label:'PS4', rate:2},
+    {key:'sim', label:'SIM', rate:3}
+  ], // konsol tipleri artık dinamik: {key,label,rate}
   products: DEFAULT_PRODUCTS.map(p=>Object.assign({},p)), // ürünler artık {key,label,price} dizisi
-  combos: [],  // kombo paketler: {key,label,stationType,minutes,price,product:{key,qty}|null}
+  combos: [],  // kombo paketler: {key,label,stationType,minutes,price,products:[{key,qty},...]}
   staff: [],   // personel listesi: {key,label}
   cloud: { binId:'', apiKey:'', autoSync:false, lastSyncAt:null } // bulut yedekleme (jsonbin.io)
 };
@@ -840,7 +997,19 @@ function safeSet(key, value){
 let settings = safeGet(LS_SETTINGS, DEFAULT_SETTINGS);
 // Eksik alanları tamamla (eski/kayıp veri koruması)
 settings = Object.assign({}, DEFAULT_SETTINGS, settings);
-settings.rates = Object.assign({}, DEFAULT_SETTINGS.rates, settings.rates);
+
+// Konsol tipleri (Saatlik Ücretler) artık dinamik dizi; eski {rates:{ps5,ps4,sim}} formatını taşı
+if(!Array.isArray(settings.deviceTypes) || settings.deviceTypes.length===0){
+  const oldRates = settings.rates;
+  const labelMap = {ps5:'PS5', ps4:'PS4', sim:'SIM'};
+  if(oldRates && typeof oldRates === 'object' && Object.keys(oldRates).length){
+    settings.deviceTypes = Object.keys(oldRates).map(k=>({key:k, label:labelMap[k]||k.toUpperCase(), rate:oldRates[k]}));
+  }else{
+    settings.deviceTypes = DEFAULT_SETTINGS.deviceTypes.map(d=>Object.assign({},d));
+  }
+}
+delete settings.rates;
+settings.language = (settings.language==='tr'||settings.language==='az'||settings.language==='ru') ? settings.language : 'tr';
 
 // Ürünler eskiden {kola:1, su:0.5,...} obje formatındaydı; artık add/delete
 // destekleyen {key,label,price} dizisi. Eski formatı otomatik taşı (migration).
@@ -895,7 +1064,14 @@ function saveSessions(){ safeSet(LS_SESSIONS, sessions); maybeAutoCloudSync(); }
 function findProductDef(key){ return settings.products.find(p=>p.key===key); }
 
 /* ---------- YARDIMCI: TİPE GÖRE SAATLİK ÜCRET ---------- */
-function rateFor(type){ return settings.rates[type] ?? 0; }
+function rateFor(type){
+  const dt = settings.deviceTypes.find(d=>d.key===type);
+  return dt ? dt.rate : 0;
+}
+function deviceTypeLabel(type){
+  const dt = settings.deviceTypes.find(d=>d.key===type);
+  return dt ? dt.label : (type||'?').toString().toUpperCase();
+}
 
 /* ---------- YARDIMCI: ZAMAN BİÇİMLENDİRME ---------- */
 function pad(n){ return n.toString().padStart(2,'0'); }
@@ -950,10 +1126,8 @@ function remainingSeconds(station, nowMs){
    RENDER: İSTASYON KARTLARI
    ================================================================ */
 function stationBadgeLetters(type){
-  if(type==='ps5') return 'PS5';
-  if(type==='ps4') return 'PS4';
-  if(type==='sim') return 'SIM';
-  return '?';
+  const label = deviceTypeLabel(type);
+  return label.length<=4 ? label.toUpperCase() : label.slice(0,3).toUpperCase();
 }
 
 function renderStationCard(st, nowMs){
@@ -963,7 +1137,7 @@ function renderStationCard(st, nowMs){
   const sec = elapsedSeconds(st, nowMs);
 
   let statusClass = st.status; // empty | busy | ending
-  let statusLabel = st.status==='empty' ? 'BOŞ' : (st.status==='ending' ? 'BİTİRİLİYOR' : 'DOLU');
+  let statusLabel = st.status==='empty' ? t('station.empty') : (st.status==='ending' ? t('station.ending') : t('station.busy'));
 
   let timerHtml;
   if(st.status==='empty'){
@@ -987,13 +1161,13 @@ function renderStationCard(st, nowMs){
 
   const actions = st.status==='empty'
     ? `<div class="st-actions">
-         <button class="btn btn-start" onclick="openStartModal('${st.id}')">${ic('play',14)} Başlat</button>
-         <button class="btn btn-detail" onclick="openDetail('${st.id}')">${ic('info',14)} Detay</button>
+         <button class="btn btn-start" onclick="openStartModal('${st.id}')">${ic('play',14)} ${t('station.start')}</button>
+         <button class="btn btn-detail" onclick="openDetail('${st.id}')">${ic('info',14)} ${t('station.detail')}</button>
        </div>`
     : `<div class="st-actions wide3">
-         <button class="btn btn-end" ${st.status==='ending'?'disabled':''} onclick="beginEndSession('${st.id}')">${ic('stop',14)} Bitir</button>
-         <button class="btn btn-add" ${st.status==='ending'?'disabled':''} onclick="openProductModal('${st.id}')">${ic('cart',14)} Ürün</button>
-         <button class="btn btn-detail" onclick="openDetail('${st.id}')">${ic('info',14)} Detay</button>
+         <button class="btn btn-end" ${st.status==='ending'?'disabled':''} onclick="beginEndSession('${st.id}')">${ic('stop',14)} ${t('station.end')}</button>
+         <button class="btn btn-add" ${st.status==='ending'?'disabled':''} onclick="openProductModal('${st.id}')">${ic('cart',14)} ${t('station.addProduct')}</button>
+         <button class="btn btn-detail" onclick="openDetail('${st.id}')">${ic('info',14)} ${t('station.detail')}</button>
        </div>`;
 
   return `
@@ -1014,7 +1188,7 @@ function renderStationCard(st, nowMs){
       <span>Oyun: <b>${cost.toFixed(2)} AZN</b></span>
       <span>Ürün: <b>${prodCost.toFixed(2)} AZN</b></span>
       <span>Toplam: <b>${total.toFixed(2)} AZN</b></span>
-    </div>` : `<div class="cost-row"><span>Oturum başlatılmadı</span></div>`}
+    </div>` : `<div class="cost-row"><span>${t('station.noSession')}</span></div>`}
     ${actions}
   </div>`;
 }
@@ -1062,6 +1236,13 @@ function startStation(id, mode, packageMinutes, packagePrice){
   showToast(`${st.name} başlatıldı${modeLabel}.`);
 }
 
+/* Bir kombonun ürün listesini döndürür (yeni çoklu-ürün formatı ya da eski tekli-ürün formatı) */
+function comboProductsList(c){
+  if(Array.isArray(c.products)) return c.products;
+  if(c.product && c.product.key) return [c.product];
+  return [];
+}
+
 /* ---- Başlatma seçim modalı: Açık Oturum mu, Paket mi? ---- */
 let startModalTarget = null;
 function openStartModal(id){
@@ -1073,8 +1254,11 @@ function openStartModal(id){
   const combosHtml = matchingCombos.length ? `
     <div style="font-size:11.5px;color:var(--green);margin:14px 0 10px;font-weight:700">🎁 KOMBO PAKETLER (sabit fiyat)</div>
     ${matchingCombos.map(c=>{
-      const prod = c.product && c.product.key ? findProductDef(c.product.key) : null;
-      const prodLabel = prod ? ` + ${c.product.qty||1}x ${escapeHtml(prod.label)}` : '';
+      const prods = comboProductsList(c);
+      const prodLabel = prods.length ? ' + ' + prods.map(p=>{
+        const pd = findProductDef(p.key);
+        return `${p.qty||1}x ${pd?escapeHtml(pd.label):p.key}`;
+      }).join(', ') : '';
       return `<button class="combo-list-btn" onclick="startCombo('${id}','${c.key}')">
         <div class="cl-title">${escapeHtml(c.label)}</div>
         <div class="cl-sub">${c.minutes} dk${prodLabel} · ${c.price.toFixed(2)} AZN</div>
@@ -1133,18 +1317,21 @@ function startCombo(id, comboKey){
   st.comboFixedPrice = Math.round(combo.price*100)/100;
   st.comboLabel = combo.label;
 
-  if(combo.product && combo.product.key){
-    const pdef = findProductDef(combo.product.key);
-    const qty = combo.product.qty || 1;
+  const prods = comboProductsList(combo);
+  let stockChanged = false;
+  prods.forEach(cp=>{
+    const pdef = findProductDef(cp.key);
+    const qty = cp.qty || 1;
     if(pdef){
       // Kombo fiyatına ürün dahil olduğu için satır fiyatı 0 gösterilir (çift ücretlendirme olmasın)
       st.products.push({key:pdef.key, name:pdef.label + ' (kombo dahil)', price:0, qty:qty});
       if(pdef.stock !== null && pdef.stock !== undefined){
         pdef.stock = Math.max(0, pdef.stock - qty);
-        saveSettings();
+        stockChanged = true;
       }
     }
-  }
+  });
+  if(stockChanged) saveSettings();
   saveStations();
   renderStations();
   renderDashboard();
@@ -1296,9 +1483,9 @@ function beginEndSession(id){
     <div class="field" style="margin-top:12px">
       <label>Ödeme Yöntemi</label>
       <div class="pay-method-grid">
-        <button type="button" class="pay-method-btn selected" id="payBtn-nakit" onclick="selectPaymentMethod('nakit')">💵 Nakit</button>
-        <button type="button" class="pay-method-btn" id="payBtn-kart" onclick="selectPaymentMethod('kart')">💳 Kart</button>
-        <button type="button" class="pay-method-btn" id="payBtn-diger" onclick="selectPaymentMethod('diger')">🔖 Diğer</button>
+        <button type="button" class="pay-method-btn selected" id="payBtn-nakit" onclick="selectPaymentMethod('nakit')" data-i18n="pay.cash">💵 Nakit</button>
+        <button type="button" class="pay-method-btn" id="payBtn-kart" onclick="selectPaymentMethod('kart')" data-i18n="pay.card">💳 Kart</button>
+        <button type="button" class="pay-method-btn" id="payBtn-diger" onclick="selectPaymentMethod('diger')" data-i18n="pay.other">🔖 Diğer</button>
       </div>
     </div>
   `;
@@ -1547,42 +1734,42 @@ function renderReport(){
   const resetBtn = document.getElementById('todayResetBtn');
   if(resetBtn) resetBtn.style.display = (reportOffset===0) ? 'none' : 'block';
 
-  const periodLabel = reportPeriod==='day' ? 'Günlük' : (reportPeriod==='week' ? 'Haftalık' : 'Aylık');
+  const periodLabel = reportPeriod==='day' ? t('report.day') : (reportPeriod==='week' ? t('report.week') : t('report.month'));
 
   document.getElementById('reportGrid').innerHTML = `
     <div class="report-card glass">
       <div class="icon">${ic('money',20)}</div>
-      <div><div class="rv">${revenue.toFixed(2)} AZN</div><div class="rl">${periodLabel} Toplam Kazanç</div></div>
+      <div><div class="rv">${revenue.toFixed(2)} AZN</div><div class="rl">${periodLabel} ${t('report.totalRevenue')}</div></div>
     </div>
     <div class="report-card glass">
       <div class="icon">${ic('user',20)}</div>
-      <div><div class="rv">${customerCount}</div><div class="rl">Toplam Müşteri</div></div>
+      <div><div class="rv">${customerCount}</div><div class="rl">${t('report.totalCustomers')}</div></div>
     </div>
     <div class="report-card glass">
       <div class="icon">${ic('gamepad',20)}</div>
-      <div><div class="rv">${topDevice}${topDeviceCount?` (${topDeviceCount})`:''}</div><div class="rl">En Çok Kullanılan Cihaz</div></div>
+      <div><div class="rv">${topDevice}${topDeviceCount?` (${topDeviceCount})`:''}</div><div class="rl">${t('report.topDevice')}</div></div>
     </div>
     <div class="report-card glass">
       <div class="icon">${ic('box',20)}</div>
-      <div><div class="rv">${topProduct}${topProductQty?` (${topProductQty} adet)`:''}</div><div class="rl">En Çok Satılan Ürün</div></div>
+      <div><div class="rv">${topProduct}${topProductQty?` (${topProductQty} adet)`:''}</div><div class="rl">${t('report.topProduct')}</div></div>
     </div>
     <div class="report-card glass" style="grid-column:1/-1">
       <div class="icon">${ic('clock',20)}</div>
-      <div><div class="rv">${formatMinutesLabel(totalDurationSec)}</div><div class="rl">Toplam Oyun Süresi</div></div>
+      <div><div class="rv">${formatMinutesLabel(totalDurationSec)}</div><div class="rl">${t('report.totalTime')}</div></div>
     </div>
     <div class="report-card glass" style="grid-column:1/-1;flex-direction:column;align-items:stretch;gap:10px">
-      <div style="font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase">Kasa Dağılımı</div>
+      <div style="font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase">${t('report.cashDist')}</div>
       <div style="display:flex;justify-content:space-between;font-size:13.5px">
-        <span>💵 Nakit</span><b>${cashTotal.toFixed(2)} AZN</b>
+        <span>${t('pay.cash')}</span><b>${cashTotal.toFixed(2)} AZN</b>
       </div>
       <div style="display:flex;justify-content:space-between;font-size:13.5px">
-        <span>💳 Kart</span><b>${cardTotal.toFixed(2)} AZN</b>
+        <span>${t('pay.card')}</span><b>${cardTotal.toFixed(2)} AZN</b>
       </div>
-      ${otherTotal>0 ? `<div style="display:flex;justify-content:space-between;font-size:13.5px"><span>🔖 Diğer</span><b>${otherTotal.toFixed(2)} AZN</b></div>` : ''}
+      ${otherTotal>0 ? `<div style="display:flex;justify-content:space-between;font-size:13.5px"><span>${t('pay.other')}</span><b>${otherTotal.toFixed(2)} AZN</b></div>` : ''}
     </div>
     ${staffRevenueEntries.length ? `
     <div class="report-card glass" style="grid-column:1/-1;flex-direction:column;align-items:stretch;gap:10px">
-      <div style="font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase">Personel Bazında Ciro</div>
+      <div style="font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase">${t('report.staffRevenue')}</div>
       ${staffRevenueEntries.map(([name,total])=>`
         <div style="display:flex;justify-content:space-between;font-size:13.5px">
           <span>👤 ${escapeHtml(name)}</span><b>${total.toFixed(2)} AZN</b>
@@ -1604,7 +1791,7 @@ function openPeriodList(){
 
   if(periodSessions.length===0){
     document.getElementById('periodListBody').innerHTML =
-      `<div class="empty-state">${ic('history',40)}<div>Bu dönemde kayıt yok.</div></div>`;
+      `<div class="empty-state">${ic('history',40)}<div>${t('report.noRecords')}</div></div>`;
   }else{
     document.getElementById('periodListBody').innerHTML = periodSessions.map(s=>{
       const d = new Date(s.endTime);
@@ -1640,7 +1827,7 @@ function printReport(){
 
   let rowsHtml = '';
   if(periodSessions.length===0){
-    rowsHtml = `<tr><td colspan="5" style="text-align:center;color:#777">Bu dönemde kayıt yok.</td></tr>`;
+    rowsHtml = `<tr><td colspan="5" style="text-align:center;color:#777">${t('report.noRecords')}</td></tr>`;
   }else{
     rowsHtml = periodSessions.map(s=>{
       const d = new Date(s.endTime);
@@ -1692,7 +1879,7 @@ function renderHistory(){
   const list = document.getElementById('historyList');
 
   if(filtered.length===0){
-    list.innerHTML = `<div class="empty-state glass">${ic('history',46)}<div>Kayıt bulunamadı.</div></div>`;
+    list.innerHTML = `<div class="empty-state glass">${ic('history',46)}<div>${t('history.noRecords')}</div></div>`;
     return;
   }
 
@@ -1714,9 +1901,9 @@ function renderHistory(){
 
 /* Bir geçmiş/rapor kaydının tam detayını gösteren modal (Geçmiş ve Rapor'dan ortak kullanılır) */
 function paymentMethodLabel(method){
-  if(method==='kart') return '💳 Kart';
-  if(method==='diger') return '🔖 Diğer';
-  return '💵 Nakit'; // eski kayıtlarda alan yoksa varsayılan
+  if(method==='kart') return t('pay.card');
+  if(method==='diger') return t('pay.other');
+  return t('pay.cash'); // eski kayıtlarda alan yoksa varsayılan
 }
 function openRecordDetail(sessionId){
   const s = sessions.find(x=>x.id===sessionId);
@@ -1764,9 +1951,9 @@ function startEditRecordAmount(sessionId){
     <div class="field">
       <label>Ödeme Yöntemi</label>
       <div class="pay-method-grid">
-        <button type="button" class="pay-method-btn ${curMethod==='nakit'?'selected':''}" id="editPayBtn-nakit" onclick="selectEditPaymentMethod('nakit')">💵 Nakit</button>
-        <button type="button" class="pay-method-btn ${curMethod==='kart'?'selected':''}" id="editPayBtn-kart" onclick="selectEditPaymentMethod('kart')">💳 Kart</button>
-        <button type="button" class="pay-method-btn ${curMethod==='diger'?'selected':''}" id="editPayBtn-diger" onclick="selectEditPaymentMethod('diger')">🔖 Diğer</button>
+        <button type="button" class="pay-method-btn ${curMethod==='nakit'?'selected':''}" id="editPayBtn-nakit" onclick="selectEditPaymentMethod('nakit')">${t('pay.cash')}</button>
+        <button type="button" class="pay-method-btn ${curMethod==='kart'?'selected':''}" id="editPayBtn-kart" onclick="selectEditPaymentMethod('kart')">${t('pay.card')}</button>
+        <button type="button" class="pay-method-btn ${curMethod==='diger'?'selected':''}" id="editPayBtn-diger" onclick="selectEditPaymentMethod('diger')">${t('pay.other')}</button>
       </div>
     </div>
     <div class="modal-actions">
@@ -1828,9 +2015,8 @@ function clearFilters(){
    ================================================================ */
 function renderSettingsForm(){
   document.getElementById('inputSalonName').value = settings.salonName;
-  document.getElementById('rate_ps5').value = settings.rates.ps5;
-  document.getElementById('rate_ps4').value = settings.rates.ps4;
-  document.getElementById('rate_sim').value = settings.rates.sim;
+  renderDeviceTypesSettings();
+  renderStationsSettings();
 
   // Mevcut ürünler: ad + fiyat + stok düzenlenebilir, her satırda silme butonu
   const rowsHtml = settings.products.map(p=>{
@@ -1863,6 +2049,111 @@ function renderSettingsForm(){
   renderCombosSettings();
   renderStaffSettings();
   renderCloudSettingsForm();
+}
+
+/* ================================================================
+   KONSOL TİPLERİ (Ayarlar > Saatlik Ücretler) — dinamik ekle/sil
+   ================================================================ */
+function renderDeviceTypesSettings(){
+  const rowsHtml = settings.deviceTypes.map(d=>`
+    <div class="prod-edit-row">
+      <input type="text" id="devtype_label_${d.key}" value="${escapeHtml(d.label)}" placeholder="Ad">
+      <input type="number" step="0.01" min="0" id="devtype_rate_${d.key}" value="${d.rate}" placeholder="Saatlik Ücret">
+      <button class="hi-del" onclick="deleteDeviceType('${d.key}')" title="Konsol tipini sil">${ic('trash',15)}</button>
+    </div>
+  `).join('');
+  const addRowHtml = `
+    <div class="prod-edit-row add-row">
+      <input type="text" id="newDeviceTypeName" placeholder="örn: Xbox, VR, Bilardo">
+      <input type="number" step="0.01" min="0" id="newDeviceTypeRate" placeholder="Saatlik Ücret (AZN)">
+      <button class="btn btn-primary small" onclick="addDeviceTypeFromForm()">${ic('gamepad',14)} Ekle</button>
+    </div>
+  `;
+  document.getElementById('deviceTypeSettingsList').innerHTML = rowsHtml + addRowHtml;
+}
+function addDeviceTypeFromForm(){
+  const nameInput = document.getElementById('newDeviceTypeName');
+  const rateInput = document.getElementById('newDeviceTypeRate');
+  const name = (nameInput.value||'').trim();
+  const rate = parseFloat(rateInput.value);
+  if(!name){ showToast('Konsol tipi adı boş olamaz.'); return; }
+  if(isNaN(rate) || rate < 0){ showToast('Geçerli bir saatlik ücret girin.'); return; }
+  const dup = settings.deviceTypes.some(d=> d.label.trim().toLowerCase() === name.toLowerCase());
+  if(dup){ showToast('Bu isimde bir konsol tipi zaten var.'); return; }
+  const key = 'type_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+  settings.deviceTypes.push({ key, label:name, rate: Math.round(rate*100)/100 });
+  saveSettings();
+  renderDeviceTypesSettings();
+  renderStationsSettings(); // yeni tip, konsol ekleme formunda da görünsün
+  showToast('Konsol tipi eklendi: ' + name);
+}
+function deleteDeviceType(key){
+  if(settings.deviceTypes.length <= 1){ showToast('En az bir konsol tipi kalmalı.'); return; }
+  const inUse = stations.some(s=>s.type===key);
+  if(inUse){ showToast("Bu tipte konsol(lar) var; önce Konsol Yönetimi'nden onları silin veya tipini değiştirin."); return; }
+  const d = settings.deviceTypes.find(x=>x.key===key);
+  if(!d) return;
+  askConfirm(`"${d.label}" konsol tipini silmek istediğinize emin misiniz?`, function(){
+    settings.deviceTypes = settings.deviceTypes.filter(x=>x.key!==key);
+    saveSettings();
+    renderDeviceTypesSettings();
+    renderStationsSettings();
+    showToast('Konsol tipi silindi.');
+  }, 'Konsol Tipini Sil');
+}
+
+/* ================================================================
+   KONSOL (İSTASYON) YÖNETİMİ — Ayarlar > Konsol Yönetimi
+   ================================================================ */
+function renderStationsSettings(){
+  const typeOptionsFor = (selectedType)=> settings.deviceTypes.map(d=>
+    `<option value="${d.key}" ${selectedType===d.key?'selected':''}>${escapeHtml(d.label)}</option>`
+  ).join('');
+  const selectStyle = 'flex:1;padding:10px 11px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--text);font-size:13px;min-width:0';
+
+  const rowsHtml = stations.map(s=>`
+    <div class="prod-edit-row">
+      <input type="text" id="stname_${s.id}" value="${escapeHtml(s.name)}" placeholder="Konsol adı">
+      <select id="sttype_${s.id}" style="${selectStyle}">${typeOptionsFor(s.type)}</select>
+      <button class="hi-del" onclick="deleteStationDef('${s.id}')" title="Konsolu sil">${ic('trash',15)}</button>
+    </div>
+  `).join('');
+  const addRowHtml = `
+    <div class="prod-edit-row add-row">
+      <input type="text" id="newStationName" placeholder="örn: Xbox-1">
+      <select id="newStationType" style="${selectStyle}">${typeOptionsFor(null)}</select>
+      <button class="btn btn-primary small" onclick="addStationFromForm()">${ic('gamepad',14)} Ekle</button>
+    </div>
+  `;
+  document.getElementById('stationSettingsList').innerHTML = rowsHtml + addRowHtml;
+}
+function addStationFromForm(){
+  const nameInput = document.getElementById('newStationName');
+  const typeSelect = document.getElementById('newStationType');
+  const name = (nameInput.value||'').trim();
+  const type = typeSelect.value;
+  if(!name){ showToast('Konsol adı boş olamaz.'); return; }
+  if(!type){ showToast('Önce bir konsol tipi ekleyin.'); return; }
+  const id = 'st_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+  stations.push({id, name, type, status:'empty', startTime:null, pendingEnd:null, products:[], mode:'open', packageMinutes:null, packagePrice:null, comboFixedPrice:null, comboLabel:null});
+  saveStations();
+  renderStationsSettings();
+  renderStations();
+  renderDashboard();
+  showToast('Konsol eklendi: ' + name);
+}
+function deleteStationDef(id){
+  const s = findStation(id);
+  if(!s) return;
+  if(s.status !== 'empty'){ showToast('Bu konsol şu anda kullanımda; önce oturumu bitirin.'); return; }
+  askConfirm(`"${s.name}" konsolunu silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.`, function(){
+    stations = stations.filter(x=>x.id!==id);
+    saveStations();
+    renderStationsSettings();
+    renderStations();
+    renderDashboard();
+    showToast('Konsol silindi.');
+  }, 'Konsolu Sil');
 }
 
 // Bir ürünün stok durumunu küçük renkli bir rozet olarak döndürür.
@@ -1925,12 +2216,22 @@ function saveSettingsForm(){
   const name = document.getElementById('inputSalonName').value.trim();
   settings.salonName = name || 'Game Center';
 
-  const ps5 = parseFloat(document.getElementById('rate_ps5').value);
-  const ps4 = parseFloat(document.getElementById('rate_ps4').value);
-  const sim = parseFloat(document.getElementById('rate_sim').value);
-  settings.rates.ps5 = isNaN(ps5) ? settings.rates.ps5 : ps5;
-  settings.rates.ps4 = isNaN(ps4) ? settings.rates.ps4 : ps4;
-  settings.rates.sim = isNaN(sim) ? settings.rates.sim : sim;
+  // Konsol tiplerinin (Saatlik Ücretler) ad/ücret düzenlemelerini kaydet
+  settings.deviceTypes.forEach(d=>{
+    const labelEl = document.getElementById('devtype_label_'+d.key);
+    const rateEl = document.getElementById('devtype_rate_'+d.key);
+    if(labelEl){ const v = labelEl.value.trim(); if(v) d.label = v; }
+    if(rateEl){ const val = parseFloat(rateEl.value); if(!isNaN(val) && val>=0) d.rate = Math.round(val*100)/100; }
+  });
+
+  // Konsol (istasyon) ad/tip düzenlemelerini kaydet
+  stations.forEach(s=>{
+    const nameEl = document.getElementById('stname_'+s.id);
+    const typeEl = document.getElementById('sttype_'+s.id);
+    if(nameEl){ const v = nameEl.value.trim(); if(v) s.name = v; }
+    if(typeEl){ const v = typeEl.value; if(v) s.type = v; }
+  });
+  saveStations();
 
   // Mevcut ürünlerin ad/fiyat/stok düzenlemelerini kaydet (ekleme/silme zaten anında kaydediliyor)
   settings.products.forEach(p=>{
@@ -1961,16 +2262,20 @@ function saveSettingsForm(){
 }
 
 /* ================================================================
-   KOMBO PAKETLER (Ayarlar > Kombo Paketler)
+   KOMBO PAKETLER (Ayarlar > Kombo Paketler) — çoklu ürün destekli
    ================================================================ */
+let comboBuilderProducts = []; // yeni kombo oluştururken geçici ürün listesi: [{key,qty}]
+
 function renderCombosSettings(){
-  const typeLabel = {ps5:'PS5', ps4:'PS4', sim:'SIM'};
   const rowsHtml = settings.combos.map(c=>{
-    const prod = c.product && c.product.key ? findProductDef(c.product.key) : null;
-    const prodTxt = prod ? ` · ${c.product.qty||1}x ${escapeHtml(prod.label)}` : '';
+    const prods = comboProductsList(c);
+    const prodTxt = prods.length ? ' · ' + prods.map(p=>{
+      const pd = findProductDef(p.key);
+      return `${p.qty||1}x ${pd?escapeHtml(pd.label):p.key}`;
+    }).join(', ') : '';
     return `
     <div class="history-item glass" style="margin-bottom:8px">
-      <div class="hi-badge">${typeLabel[c.stationType]||'?'}</div>
+      <div class="hi-badge">${stationBadgeLetters(c.stationType)}</div>
       <div class="hi-main">
         <div class="t1">${escapeHtml(c.label)}</div>
         <div class="t2">${c.minutes} dk${prodTxt}</div>
@@ -1981,31 +2286,63 @@ function renderCombosSettings(){
   }).join('');
 
   const productOptions = settings.products.map(p=>`<option value="${p.key}">${escapeHtml(p.label)}</option>`).join('');
+  const typeOptions = settings.deviceTypes.map(d=>`<option value="${d.key}">${escapeHtml(d.label)}</option>`).join('');
 
   const addFormHtml = `
-    <div class="field"><label>Paket Adı</label><input type="text" id="newComboName" placeholder="örn: 3 Saat PS5 + Kola"></div>
+    <div class="field"><label>Paket Adı</label><input type="text" id="newComboName" placeholder="örn: 3 Saat PS5 + İçecek"></div>
     <div class="field"><label>Konsol Tipi</label>
-      <select id="newComboType">
-        <option value="ps5">PS5</option>
-        <option value="ps4">PS4</option>
-        <option value="sim">SIM</option>
-      </select>
+      <select id="newComboType">${typeOptions}</select>
     </div>
     <div class="field"><label>Süre (dakika)</label><input type="number" min="1" step="1" id="newComboMinutes" placeholder="örn: 180"></div>
     <div class="field"><label>Paket Fiyatı (AZN)</label><input type="number" min="0" step="0.01" id="newComboPrice" placeholder="örn: 8.00"></div>
-    <div class="field"><label>Dahil Ürün (opsiyonel)</label>
-      <select id="newComboProduct">
-        <option value="">Yok</option>
-        ${productOptions}
-      </select>
+    <div class="field">
+      <label>Dahil Ürünler (opsiyonel, birden fazla eklenebilir)</label>
+      <div style="display:flex;gap:8px">
+        <select id="newComboProduct" style="flex:1.4">${productOptions || '<option value="">Önce ürün ekleyin</option>'}</select>
+        <input type="number" min="1" step="1" id="newComboProductQty" value="1" style="flex:.6">
+      </div>
+      <button type="button" class="btn btn-ghost btn-full" style="margin-top:8px" onclick="addComboBuilderProduct()">+ Listeye Ekle</button>
+      <div id="comboBuilderList" style="margin-top:8px"></div>
     </div>
-    <div class="field"><label>Ürün Adedi</label><input type="number" min="1" step="1" id="newComboProductQty" value="1"></div>
     <button class="btn btn-primary btn-full" onclick="addComboFromForm()">${ic('cart',14)} Kombo Ekle</button>
   `;
 
   document.getElementById('comboSettingsList').innerHTML =
     (settings.combos.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">Henüz kombo paket yok.</div>`)
     + `<div style="margin-top:${settings.combos.length?'14px':'0'};padding-top:${settings.combos.length?'14px':'0'};${settings.combos.length?'border-top:1px dashed rgba(255,255,255,.14)':''}">${addFormHtml}</div>`;
+
+  renderComboBuilderProducts();
+}
+
+/* Yeni kombo oluşturma formundaki "Dahil Ürünler" geçici listesi */
+function renderComboBuilderProducts(){
+  const el = document.getElementById('comboBuilderList');
+  if(!el) return;
+  if(comboBuilderProducts.length===0){
+    el.innerHTML = `<div style="font-size:11.5px;color:var(--muted)">Henüz ürün eklenmedi.</div>`;
+    return;
+  }
+  el.innerHTML = comboBuilderProducts.map((p,idx)=>{
+    const pdef = findProductDef(p.key);
+    return `<div style="display:flex;justify-content:space-between;align-items:center;font-size:12.5px;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.1)">
+      <span>${p.qty}x ${escapeHtml(pdef?pdef.label:p.key)}</span>
+      <button class="hi-del" onclick="removeComboBuilderProduct(${idx})">${ic('trash',13)}</button>
+    </div>`;
+  }).join('');
+}
+function addComboBuilderProduct(){
+  const sel = document.getElementById('newComboProduct');
+  const qtyEl = document.getElementById('newComboProductQty');
+  const key = sel.value;
+  const qty = parseInt(qtyEl.value, 10) || 1;
+  if(!key){ showToast('Bir ürün seçin.'); return; }
+  const existing = comboBuilderProducts.find(p=>p.key===key);
+  if(existing){ existing.qty += qty; } else { comboBuilderProducts.push({key, qty}); }
+  renderComboBuilderProducts();
+}
+function removeComboBuilderProduct(idx){
+  comboBuilderProducts.splice(idx, 1);
+  renderComboBuilderProducts();
 }
 
 function addComboFromForm(){
@@ -2013,10 +2350,9 @@ function addComboFromForm(){
   const stationType = document.getElementById('newComboType').value;
   const minutes = parseInt(document.getElementById('newComboMinutes').value, 10);
   const price = parseFloat(document.getElementById('newComboPrice').value);
-  const prodKey = document.getElementById('newComboProduct').value;
-  const prodQty = parseInt(document.getElementById('newComboProductQty').value, 10) || 1;
 
   if(!name){ showToast('Paket adı boş olamaz.'); return; }
+  if(!stationType){ showToast('Önce Saatlik Ücretler bölümünden bir konsol tipi ekleyin.'); return; }
   if(!minutes || minutes<=0){ showToast('Geçerli bir süre girin.'); return; }
   if(isNaN(price) || price<0){ showToast('Geçerli bir fiyat girin.'); return; }
 
@@ -2024,8 +2360,9 @@ function addComboFromForm(){
   settings.combos.push({
     key, label:name, stationType, minutes,
     price: Math.round(price*100)/100,
-    product: prodKey ? {key:prodKey, qty:prodQty} : null
+    products: comboBuilderProducts.slice()
   });
+  comboBuilderProducts = [];
   saveSettings();
   renderCombosSettings();
   showToast('Kombo paket eklendi: ' + name);
@@ -2090,7 +2427,7 @@ function renderStaffPill(){
   const pill = document.getElementById('staffPill');
   if(!pill) return;
   const name = activeStaffName();
-  pill.innerText = name ? ('👤 ' + name) : '👤 Vardiya Seç';
+  pill.innerText = name ? ('👤 ' + name) : t('staff.pillDefault');
 }
 function openStaffModal(){
   const body = document.getElementById('staffModalBody');
@@ -2108,7 +2445,7 @@ function openStaffModal(){
       </button>
     `).join('') + `
       <button class="staff-list-btn ${!activeStaffKey?'selected':''}" onclick="selectStaff(null)">
-        <span>— Vardiya Belirtilmedi —</span>${!activeStaffKey ? '<span>✓</span>' : ''}
+        <span>${t('staff.none')}</span>${!activeStaffKey ? '<span>✓</span>' : ''}
       </button>
     `;
   }
@@ -2295,7 +2632,19 @@ document.getElementById('restoreInput').addEventListener('change', function(e){
 /* Bir yedek nesnesini (dosyadan veya buluttan) uygulamaya yükler. */
 function applyRestoredData(data){
   settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
-  settings.rates = Object.assign({}, DEFAULT_SETTINGS.rates, data.settings.rates);
+
+  // Konsol tipleri: yeni {deviceTypes:[...]} veya eski {rates:{ps5,ps4,sim}} formatını taşı
+  if(Array.isArray(data.settings.deviceTypes) && data.settings.deviceTypes.length){
+    settings.deviceTypes = data.settings.deviceTypes;
+  }else if(data.settings.rates && typeof data.settings.rates === 'object'){
+    const labelMap = {ps5:'PS5', ps4:'PS4', sim:'SIM'};
+    settings.deviceTypes = Object.keys(data.settings.rates).map(k=>({key:k, label:labelMap[k]||k.toUpperCase(), rate:data.settings.rates[k]}));
+  }else{
+    settings.deviceTypes = DEFAULT_SETTINGS.deviceTypes.map(d=>Object.assign({},d));
+  }
+  delete settings.rates;
+  settings.language = (data.settings.language==='tr'||data.settings.language==='az'||data.settings.language==='ru') ? data.settings.language : 'tr';
+
   settings.products = Array.isArray(data.settings.products) && data.settings.products.length
     ? data.settings.products
     : DEFAULT_PRODUCTS.map(p=>Object.assign({},p));
@@ -2313,6 +2662,7 @@ function applyRestoredData(data){
 
   saveSettings(); saveStations(); saveSessions(); saveActiveStaff();
 
+  applyLanguage();
   renderSettingsForm();
   renderStations();
   renderDashboard();
@@ -2473,6 +2823,7 @@ function setupPWA(){
 function init(){
   updateClock();
   renderStaticIcons();
+  applyLanguage();
   renderSettingsForm();
   renderStations();
   renderDashboard();
