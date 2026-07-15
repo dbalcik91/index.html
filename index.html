@@ -555,22 +555,22 @@ input,textarea{-webkit-user-select:text;user-select:text;}
     </div>
 
     <div class="settings-block glass">
-      <h4>Salon Bilgileri</h4>
+      <h4 data-i18n="settings.salonInfo">Salon Bilgileri</h4>
       <div class="logo-upload">
         <div class="logo-preview" id="settingsLogoPreview">Logo</div>
-        <label class="file-btn">Logo Seç
+        <label class="file-btn" data-i18n="settings.logoSelect">Logo Seç
           <input type="file" accept="image/*" id="logoInput" style="display:none">
         </label>
       </div>
       <div class="field">
-        <label>Salon Adı</label>
+        <label data-i18n="settings.salonName">Salon Adı</label>
         <input type="text" id="inputSalonName" placeholder="Game Center">
       </div>
     </div>
 
     <div class="settings-block glass">
       <h4 data-i18n="settings.hourlyRates">Saatlik Ücretler (AZN)</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" data-i18n="settings.hourlyRatesDesc">
         Konsol tipi ekleyip her biri için saatlik ücret belirleyebilirsin (örn. PS5, Xbox, VR, Bilardo...).
       </div>
       <div id="deviceTypeSettingsList"></div>
@@ -578,7 +578,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
     <div class="settings-block glass">
       <h4 data-i18n="settings.stationMgmt">Konsol Yönetimi</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" data-i18n="settings.stationMgmtDesc">
         Salonundaki fiziksel konsolları/istasyonları buradan ekleyebilir veya kaldırabilirsin.
       </div>
       <div id="stationSettingsList"></div>
@@ -591,7 +591,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
     <div class="settings-block glass">
       <h4 data-i18n="settings.comboPackages">Kombo Paketler</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" data-i18n="settings.comboDesc">
         Süre + ürünü tek fiyata birleştiren hazır paketler (örn: "3 Saat PS5 + 1 Kola"). Başlat ekranında konsol tipine göre listelenir; ücret paket fiyatına sabitlenir.
       </div>
       <div id="comboSettingsList"></div>
@@ -599,7 +599,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
     <div class="settings-block glass">
       <h4 data-i18n="settings.staff">Personel</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" data-i18n="settings.staffDesc">
         Vardiyaya giren personeli üst bardaki "Vardiya" rozetinden seçebilirsiniz; kayıtlar personele göre raporlanır.
       </div>
       <div id="staffSettingsList"></div>
@@ -609,7 +609,7 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
     <div class="settings-block glass" style="margin-top:14px">
       <h4 data-i18n="settings.backup">Yedekleme</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" data-i18n="settings.backupDesc">
         Tüm verilerin (konsollar, geçmiş, ayarlar) tek bir dosyaya kaydedilir. Telefon değiştirirken veya yedek almak için kullan.
       </div>
       <button class="btn btn-ghost btn-full" onclick="exportBackup()" style="margin-bottom:10px" data-i18n="settings.downloadBackup">📥 Yedeği İndir (Dosyalara Kaydet)</button>
@@ -621,14 +621,14 @@ input,textarea{-webkit-user-select:text;user-select:text;}
 
     <div class="settings-block glass" style="margin-top:14px">
       <h4 data-i18n="settings.cloudBackup">Bulut Yedekleme</h4>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5" id="cloudDescText">
         Verilerini internet üzerinden yedeklemek için ücretsiz bir <a href="https://jsonbin.io" target="_blank" rel="noopener" style="color:var(--orange-2)">jsonbin.io</a> hesabı aç, yeni bir "Bin" oluştur ve aşağıya Bin ID ile X-Master-Key bilgilerini yapıştır.
       </div>
-      <div class="field"><label>Bin ID</label><input type="text" id="cloudBinId" placeholder="örn: 65fa2b1c8e9a1c2f3d4b5a6c"></div>
-      <div class="field"><label>X-Master-Key (API Anahtarı)</label><input type="password" id="cloudApiKey" placeholder="jsonbin.io API anahtarı"></div>
+      <div class="field"><label data-i18n="settings.binId">Bin ID</label><input type="text" id="cloudBinId" placeholder="örn: 65fa2b1c8e9a1c2f3d4b5a6c"></div>
+      <div class="field"><label data-i18n="settings.apiKey">X-Master-Key (API Anahtarı)</label><input type="password" id="cloudApiKey" placeholder="jsonbin.io API anahtarı"></div>
       <div class="field" style="display:flex;align-items:center;gap:8px">
         <input type="checkbox" id="cloudAutoSync" style="width:auto;flex:none">
-        <label style="margin:0">Her değişiklikte otomatik buluta yedekle</label>
+        <label style="margin:0" data-i18n="settings.autoSyncLabel">Her değişiklikte otomatik buluta yedekle</label>
       </div>
       <button class="btn btn-primary btn-full" onclick="saveCloudSettings()" style="margin-bottom:10px" data-i18n="settings.saveCloudBtn">💾 Bulut Ayarlarını Kaydet</button>
       <button class="btn btn-ghost btn-full" onclick="cloudUpload(true)" style="margin-bottom:10px" data-i18n="settings.uploadCloud">☁️ Buluta Yükle</button>
@@ -831,6 +831,129 @@ const I18N = {
     'modal.yesDelete':'Evet, Sil','modal.staffSelect':'Vardiyayı Seç','modal.add':'Ekle',
     'pay.cash':'💵 Nakit','pay.card':'💳 Kart','pay.other':'🔖 Diğer',
     'staff.pillDefault':'👤 Vardiya Seç','staff.none':'— Vardiya Belirtilmedi —',
+    'toast.saveFailed':'Veri kaydedilemedi! Depolama alanı dolu olabilir.',
+    'toast.stationBusy':'Bu konsol zaten dolu.',
+    'toast.startedPlain':'{name} başlatıldı.',
+    'toast.startedPackage':'{name} başlatıldı ({mins} dk paket).',
+    'toast.invalidDuration':'Geçerli bir süre girin.',
+    'toast.invalidPrice':'Geçerli bir fiyat girin.',
+    'toast.comboStarted':'{name}: "{combo}" kombo paketi başlatıldı.',
+    'toast.noProducts':'Önce Ayarlar > Ürünler bölümünden ürün ekleyin.',
+    'toast.noProductSelected':'Herhangi bir ürün seçilmedi.',
+    'toast.lowStockPrefix':'⚠️ Düşük stok: ',
+    'toast.productsAdded':'Ürün(ler) eklendi.',
+    'toast.sessionSaved':'Oturum kaydedildi.',
+    'toast.invalidAmount':'Geçerli bir tutar girin.',
+    'toast.amountUpdated':'Tutar güncellendi: {amount} AZN',
+    'toast.recordDeleted':'Kayıt silindi.',
+    'toast.deviceTypeNameEmpty':'Konsol tipi adı boş olamaz.',
+    'toast.deviceTypeRateInvalid':'Geçerli bir saatlik ücret girin.',
+    'toast.deviceTypeDup':'Bu isimde bir konsol tipi zaten var.',
+    'toast.deviceTypeAdded':'Konsol tipi eklendi: {name}',
+    'toast.deviceTypeMinOne':'En az bir konsol tipi kalmalı.',
+    'toast.deviceTypeInUse':"Bu tipte konsol(lar) var; önce Konsol Yönetimi'nden onları silin veya tipini değiştirin.",
+    'toast.deviceTypeDeleted':'Konsol tipi silindi.',
+    'toast.stationNameEmpty':'Konsol adı boş olamaz.',
+    'toast.stationTypeMissing':'Önce bir konsol tipi ekleyin.',
+    'toast.stationAdded':'Konsol eklendi: {name}',
+    'toast.stationInUse':'Bu konsol şu anda kullanımda; önce oturumu bitirin.',
+    'toast.stationDeleted':'Konsol silindi.',
+    'toast.productNameEmpty':'Ürün adı boş olamaz.',
+    'toast.productStockInvalid':'Geçerli bir stok miktarı girin.',
+    'toast.productDup':'Bu isimde bir ürün zaten var.',
+    'toast.productAdded':'Ürün eklendi: {name}',
+    'toast.productDeleted':'Ürün silindi.',
+    'toast.settingsSaved':'Ayarlar kaydedildi.',
+    'toast.comboProductNotSelected':'Bir ürün seçin.',
+    'toast.comboNameEmpty':'Paket adı boş olamaz.',
+    'toast.comboTypeMissing':'Önce Saatlik Ücretler bölümünden bir konsol tipi ekleyin.',
+    'toast.comboAdded':'Kombo paket eklendi: {name}',
+    'toast.comboDeleted':'Kombo paket silindi.',
+    'toast.staffNameEmpty':'Personel adı boş olamaz.',
+    'toast.staffDup':'Bu isimde bir personel zaten var.',
+    'toast.staffAdded':'Personel eklendi: {name}',
+    'toast.staffDeleted':'Personel silindi.',
+    'toast.shiftSet':'Vardiya: {name}',
+    'toast.shiftNone':'Vardiya belirtilmedi.',
+    'toast.cloudSettingsSaved':'Bulut ayarları kaydedildi.',
+    'toast.cloudFieldsMissing':'Önce Bulut Yedekleme bilgilerini girip kaydedin.',
+    'toast.cloudUploaded':'☁️ Buluta yedeklendi.',
+    'toast.cloudUploadFailed':'Buluta yükleme başarısız. Bin ID / API anahtarını ve bağlantıyı kontrol edin.',
+    'toast.cloudDownloadFailed':'Buluttan indirme başarısız. Bin ID / API anahtarını ve bağlantıyı kontrol edin.',
+    'toast.cloudInvalidData':'Buluttaki veri geçerli bir yedek gibi görünmüyor.',
+    'toast.cloudRestored':'☁️ Bulut yedeği geri yüklendi.',
+    'toast.logoFailed':'Logo yüklenemedi.',
+    'toast.backupDownloaded':'Yedek indirildi: {name}',
+    'toast.backupFailed':'Yedekleme başarısız oldu.',
+    'toast.backupInvalidJson':'Geçersiz yedek dosyası (JSON okunamadı).',
+    'toast.backupInvalidFile':'Bu dosya geçerli bir yedek gibi görünmüyor.',
+    'toast.backupRestored':'Yedek başarıyla geri yüklendi.',
+    'toast.fileReadFailed':'Dosya okunamadı.',
+    'toast.packageExpired':'⏰ {name}: Paket süresi doldu!',
+    'toast.packageWarning5min':'⏳ {name}: Paket süresine 5 dakika kaldı.',
+    'confirm.deleteRecord':'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.',
+    'confirm.deleteRecordTitle':'Kaydı Sil',
+    'confirm.deleteDeviceType':'"{name}" konsol tipini silmek istediğinize emin misiniz?',
+    'confirm.deleteDeviceTypeTitle':'Konsol Tipini Sil',
+    'confirm.deleteStation':'"{name}" konsolunu silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.',
+    'confirm.deleteStationTitle':'Konsolu Sil',
+    'confirm.deleteProduct':'"{name}" ürününü kalıcı olarak silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.',
+    'confirm.deleteProductTitle':'Ürünü Sil',
+    'confirm.deleteCombo':'"{name}" kombo paketini silmek istediğinize emin misiniz?',
+    'confirm.deleteComboTitle':'Kombo Paketi Sil',
+    'confirm.deleteStaff':'"{name}" adlı personeli silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.',
+    'confirm.deleteStaffTitle':'Personeli Sil',
+    'confirm.cloudRestore':'Buluttaki yedeği geri yüklersen mevcut tüm veriler (konsollar, geçmiş, ayarlar) bu yedekteki verilerle DEĞİŞTİRİLECEK. Bu işlem geri alınamaz. Devam edilsin mi?',
+    'confirm.cloudRestoreTitle':'Buluttan Geri Yükle',
+    'confirm.fileRestore':'Bu yedeği geri yüklersen mevcut tüm veriler (konsollar, geçmiş, ayarlar) bu yedekteki verilerle DEĞİŞTİRİLECEK. Bu işlem geri alınamaz. Devam edilsin mi?',
+    'confirm.fileRestoreTitle':'Yedeği Geri Yükle',
+    'lbl.console':'Konsol','lbl.comboPackage':'Kombo Paket','lbl.staff':'Personel','lbl.date':'Tarih',
+    'lbl.start':'Başlangıç','lbl.end':'Bitiş','lbl.totalDuration':'Toplam Süre','lbl.gameFee':'Oyun Ücreti',
+    'lbl.productAmount':'Ürün Tutarı','lbl.soldProducts':'SATILAN ÜRÜNLER',
+    'lbl.noProductSoldThisSession':'Bu oturumda ürün satılmadı.','lbl.subtotal':'Ara Toplam','lbl.discount':'İskonto',
+    'lbl.paymentMethod':'Ödeme Yöntemi','lbl.totalCollected':'Tahsil Edilen Tutar','lbl.editAmount':'✏️ Tutarı Sonradan Düzelt',
+    'lbl.newCollectedAmount':'Yeni Tahsil Edilen Tutar (AZN)','lbl.save':'Kaydet','lbl.status':'Durum',
+    'lbl.hourlyFee':'Saatlik Ücret','lbl.packageDuration':'Paket Süresi','lbl.remainingTime':'Kalan Süre',
+    'lbl.timeUp':'Süre doldu','lbl.elapsedTime':'Geçen Süre','lbl.products':'Ürünler',
+    'lbl.noProductYet':'Henüz ürün eklenmedi.','lbl.instantTotal':'Anlık Toplam','lbl.orderTotal':'Tahsil Edilecek Tutar',
+    'lbl.discountField':'İskonto (AZN) — opsiyonel, örn. müşteriden az aldıysan',
+    'lbl.periodTransactionsSuffix':'İşlemleri',
+    'home.consoleUnit':'konsol','history.recordUnit':'kayıt',
+    'staff.noStaffYet':'Henüz personel eklenmedi. Ayarlar > Personel bölümünden ekleyebilirsiniz.',
+    'staff.goToSettings':'Ayarlara Git',
+    'cloud.lastSync':'Son senkronizasyon: {date}','cloud.neverSynced':'Henüz senkronize edilmedi.',
+    'settings.salonInfoDesc':'','settings.hourlyRatesDesc':'Konsol tipi ekleyip her biri için saatlik ücret belirleyebilirsin (örn. PS5, Xbox, VR, Bilardo...).',
+    'settings.stationMgmtDesc':'Salonundaki fiziksel konsolları/istasyonları buradan ekleyebilir veya kaldırabilirsin.',
+    'settings.comboDesc':'Süre + ürünü tek fiyata birleştiren hazır paketler (örn: "3 Saat PS5 + 1 Kola"). Başlat ekranında konsol tipine göre listelenir; ücret paket fiyatına sabitlenir.',
+    'settings.staffDesc':'Vardiyaya giren personeli üst bardaki "Vardiya" rozetinden seçebilirsiniz; kayıtlar personele göre raporlanır.',
+    'settings.backupDesc':'Tüm verilerin (konsollar, geçmiş, ayarlar) tek bir dosyaya kaydedilir. Telefon değiştirirken veya yedek almak için kullan.',
+    'settings.cloudDescPrefix':'Verilerini internet üzerinden yedeklemek için ücretsiz bir ',
+    'settings.cloudDescSuffix':' hesabı aç, yeni bir "Bin" oluştur ve aşağıya Bin ID ile X-Master-Key bilgilerini yapıştır.',
+    'settings.autoSyncLabel':'Her değişiklikte otomatik buluta yedekle',
+    'settings.logoSelect':'Logo Seç','settings.salonName':'Salon Adı',
+    'settings.binId':'Bin ID','settings.apiKey':'X-Master-Key (API Anahtarı)',
+    'settings.newProductName':'Yeni ürün adı','settings.priceAZN':'Fiyat (AZN)','settings.stockOptional':'Stok (opsiyonel)',
+    'settings.noProductsYet':'Henüz ürün yok. Aşağıdan ekleyebilirsiniz.',
+    'settings.noComboYet':'Henüz kombo paket yok.',
+    'settings.noStaffYetInline':'Henüz personel eklenmedi.',
+    'settings.comboName':'Paket Adı','settings.comboType':'Konsol Tipi','settings.comboMinutes':'Süre (dakika)',
+    'settings.comboPrice':'Paket Fiyatı (AZN)','settings.comboIncludedProducts':'Dahil Ürünler (opsiyonel, birden fazla eklenebilir)',
+    'settings.comboAddToList':'+ Listeye Ekle','settings.comboAddBtn':'Kombo Ekle','settings.comboNoProductAdded':'Henüz ürün eklenmedi.',
+    'settings.newStaffName':'Yeni personel adı','settings.staffAddBtn':'Ekle',
+    'settings.newDeviceTypeName':'örn: Xbox, VR, Bilardo','settings.hourlyRateAZN':'Saatlik Ücret (AZN)',
+    'settings.newStationName':'örn: Xbox-1','settings.deviceTypeAddBtn':'Ekle','settings.stationAddBtn':'Ekle',
+    'stock.trackingOff':'Stok takibi kapalı','stock.out':'Stok Tükendi','stock.low':'Düşük Stok: {n} adet','stock.ok':'Stokta: {n} adet',
+    'note.comboFixed':'ücret sabit {price} AZN olarak uygulanır (süreye göre değişmez).',
+    'note.packageEarly':'{mins} dk paket seçilmişti ama oturum erken bitirildi ({used} kullanıldı). Ücret, kullanılan gerçek süre × saatlik ücrete göre hesaplandı.',
+    'note.packageOver':'{mins} dk paket süresi aşıldı ({used} kullanıldı). Ücret, kullanılan gerçek süre × saatlik ücrete göre hesaplandı.',
+    'print.dateTime':'Tarih/Saat','print.duration':'Süre',
+    'card.game':'Oyun','card.product':'Ürün','card.total':'Toplam',
+    'modal.openSession':'Açık Oturum Başlat (saatlik {rate} AZN)',
+    'modal.orPackageTitle':'VEYA SÜRE PAKETİ İLE BAŞLAT (geri sayım + uyarı)',
+    'modal.packageDescNote':'Süre seçmek sayacı geri saydırır ve süre bitince uyarır. Ücret her zaman gerçek kullanılan süreye göre (saatlik ücretten) hesaplanır — erken biterse az, uzarsa fazla öder.',
+    'modal.customDuration':'Özel Süre (dakika)','modal.targetPrice':'Hedef Ücret (AZN) — sadece bilgi amaçlı gösterilir',
+    'modal.startWithPackage':'Paketle Başlat',
+    'toast.stockLeft':'{name}: {stock} adet kaldı',
   },
   az: {
     'topbar.sub':'İdarəetmə Paneli',
@@ -861,6 +984,129 @@ const I18N = {
     'modal.yesDelete':'Bəli, Sil','modal.staffSelect':'Növbəni Seç','modal.add':'Əlavə Et',
     'pay.cash':'💵 Nağd','pay.card':'💳 Kart','pay.other':'🔖 Digər',
     'staff.pillDefault':'👤 Növbə Seç','staff.none':'— Növbə Təyin Olunmayıb —',
+    'toast.saveFailed':'Məlumat saxlanılmadı! Yaddaş dolu ola bilər.',
+    'toast.stationBusy':'Bu konsol artıq doludur.',
+    'toast.startedPlain':'{name} başladıldı.',
+    'toast.startedPackage':'{name} başladıldı ({mins} dəq paket).',
+    'toast.invalidDuration':'Düzgün bir müddət daxil edin.',
+    'toast.invalidPrice':'Düzgün bir qiymət daxil edin.',
+    'toast.comboStarted':'{name}: "{combo}" kombo paketi başladıldı.',
+    'toast.noProducts':'Əvvəlcə Ayarlar > Məhsullar bölümündən məhsul əlavə edin.',
+    'toast.noProductSelected':'Heç bir məhsul seçilmədi.',
+    'toast.lowStockPrefix':'⚠️ Aşağı stok: ',
+    'toast.productsAdded':'Məhsul(lar) əlavə edildi.',
+    'toast.sessionSaved':'Sessiya yadda saxlanıldı.',
+    'toast.invalidAmount':'Düzgün bir məbləğ daxil edin.',
+    'toast.amountUpdated':'Məbləğ yeniləndi: {amount} AZN',
+    'toast.recordDeleted':'Qeyd silindi.',
+    'toast.deviceTypeNameEmpty':'Konsol tipi adı boş ola bilməz.',
+    'toast.deviceTypeRateInvalid':'Düzgün bir saatlıq qiymət daxil edin.',
+    'toast.deviceTypeDup':'Bu adda konsol tipi artıq mövcuddur.',
+    'toast.deviceTypeAdded':'Konsol tipi əlavə edildi: {name}',
+    'toast.deviceTypeMinOne':'Ən azı bir konsol tipi qalmalıdır.',
+    'toast.deviceTypeInUse':'Bu tipdə konsol(lar) var; əvvəlcə Konsol İdarəetməsindən onları silin və ya tipini dəyişin.',
+    'toast.deviceTypeDeleted':'Konsol tipi silindi.',
+    'toast.stationNameEmpty':'Konsol adı boş ola bilməz.',
+    'toast.stationTypeMissing':'Əvvəlcə bir konsol tipi əlavə edin.',
+    'toast.stationAdded':'Konsol əlavə edildi: {name}',
+    'toast.stationInUse':'Bu konsol hazırda istifadə olunur; əvvəlcə sessiyanı bitirin.',
+    'toast.stationDeleted':'Konsol silindi.',
+    'toast.productNameEmpty':'Məhsul adı boş ola bilməz.',
+    'toast.productStockInvalid':'Düzgün bir stok miqdarı daxil edin.',
+    'toast.productDup':'Bu adda məhsul artıq mövcuddur.',
+    'toast.productAdded':'Məhsul əlavə edildi: {name}',
+    'toast.productDeleted':'Məhsul silindi.',
+    'toast.settingsSaved':'Ayarlar yadda saxlanıldı.',
+    'toast.comboProductNotSelected':'Bir məhsul seçin.',
+    'toast.comboNameEmpty':'Paket adı boş ola bilməz.',
+    'toast.comboTypeMissing':'Əvvəlcə Saatlıq Qiymətlər bölümündən bir konsol tipi əlavə edin.',
+    'toast.comboAdded':'Kombo paket əlavə edildi: {name}',
+    'toast.comboDeleted':'Kombo paket silindi.',
+    'toast.staffNameEmpty':'Personal adı boş ola bilməz.',
+    'toast.staffDup':'Bu adda personal artıq mövcuddur.',
+    'toast.staffAdded':'Personal əlavə edildi: {name}',
+    'toast.staffDeleted':'Personal silindi.',
+    'toast.shiftSet':'Növbə: {name}',
+    'toast.shiftNone':'Növbə təyin olunmadı.',
+    'toast.cloudSettingsSaved':'Bulud ayarları yadda saxlanıldı.',
+    'toast.cloudFieldsMissing':'Əvvəlcə Bulud Ehtiyat Nüsxə məlumatlarını daxil edib saxlayın.',
+    'toast.cloudUploaded':'☁️ Buluda ehtiyat nüsxə yaradıldı.',
+    'toast.cloudUploadFailed':'Buluda yükləmə uğursuz oldu. Bin ID / API açarını və bağlantını yoxlayın.',
+    'toast.cloudDownloadFailed':'Buluddan endirmə uğursuz oldu. Bin ID / API açarını və bağlantını yoxlayın.',
+    'toast.cloudInvalidData':'Buluddakı məlumat düzgün ehtiyat nüsxə kimi görünmür.',
+    'toast.cloudRestored':'☁️ Bulud ehtiyat nüsxəsi bərpa edildi.',
+    'toast.logoFailed':'Loqo yüklənmədi.',
+    'toast.backupDownloaded':'Ehtiyat nüsxə endirildi: {name}',
+    'toast.backupFailed':'Ehtiyat nüsxə alınması uğursuz oldu.',
+    'toast.backupInvalidJson':'Yanlış ehtiyat nüsxə faylı (JSON oxuna bilmədi).',
+    'toast.backupInvalidFile':'Bu fayl düzgün ehtiyat nüsxə kimi görünmür.',
+    'toast.backupRestored':'Ehtiyat nüsxə uğurla bərpa edildi.',
+    'toast.fileReadFailed':'Fayl oxuna bilmədi.',
+    'toast.packageExpired':'⏰ {name}: Paket müddəti bitdi!',
+    'toast.packageWarning5min':'⏳ {name}: Paket müddətinə 5 dəqiqə qaldı.',
+    'confirm.deleteRecord':'Bu qeydi silmək istədiyinizə əminsiniz? Bu əməliyyat geri qaytarıla bilməz.',
+    'confirm.deleteRecordTitle':'Qeydi Sil',
+    'confirm.deleteDeviceType':'"{name}" konsol tipini silmək istədiyinizə əminsiniz?',
+    'confirm.deleteDeviceTypeTitle':'Konsol Tipini Sil',
+    'confirm.deleteStation':'"{name}" konsolunu silmək istədiyinizə əminsiniz? Keçmiş qeydlərə təsir etməz.',
+    'confirm.deleteStationTitle':'Konsolu Sil',
+    'confirm.deleteProduct':'"{name}" məhsulunu həmişəlik silmək istədiyinizə əminsiniz? Keçmiş qeydlərə təsir etməz.',
+    'confirm.deleteProductTitle':'Məhsulu Sil',
+    'confirm.deleteCombo':'"{name}" kombo paketini silmək istədiyinizə əminsiniz?',
+    'confirm.deleteComboTitle':'Kombo Paketi Sil',
+    'confirm.deleteStaff':'"{name}" adlı personalı silmək istədiyinizə əminsiniz? Keçmiş qeydlərə təsir etməz.',
+    'confirm.deleteStaffTitle':'Personalı Sil',
+    'confirm.cloudRestore':'Buludda olan ehtiyat nüsxəni bərpa etsəniz, bütün mövcud məlumatlar (konsollar, tarixçə, ayarlar) bu nüsxədəki məlumatlarla DƏYİŞDİRİLƏCƏK. Bu əməliyyat geri qaytarıla bilməz. Davam edilsin?',
+    'confirm.cloudRestoreTitle':'Buluddan Bərpa Et',
+    'confirm.fileRestore':'Bu ehtiyat nüsxəni bərpa etsəniz, bütün mövcud məlumatlar (konsollar, tarixçə, ayarlar) bu nüsxədəki məlumatlarla DƏYİŞDİRİLƏCƏK. Bu əməliyyat geri qaytarıla bilməz. Davam edilsin?',
+    'confirm.fileRestoreTitle':'Ehtiyat Nüsxəni Bərpa Et',
+    'lbl.console':'Konsol','lbl.comboPackage':'Kombo Paket','lbl.staff':'Personal','lbl.date':'Tarix',
+    'lbl.start':'Başlanğıc','lbl.end':'Bitmə','lbl.totalDuration':'Ümumi Müddət','lbl.gameFee':'Oyun Haqqı',
+    'lbl.productAmount':'Məhsul Məbləği','lbl.soldProducts':'SATILAN MƏHSULLAR',
+    'lbl.noProductSoldThisSession':'Bu sessiyada məhsul satılmadı.','lbl.subtotal':'Aralıq Cəm','lbl.discount':'Endirim',
+    'lbl.paymentMethod':'Ödəniş Üsulu','lbl.totalCollected':'Alınan Məbləğ','lbl.editAmount':'✏️ Məbləği Sonradan Düzəlt',
+    'lbl.newCollectedAmount':'Yeni Alınan Məbləğ (AZN)','lbl.save':'Saxla','lbl.status':'Status',
+    'lbl.hourlyFee':'Saatlıq Qiymət','lbl.packageDuration':'Paket Müddəti','lbl.remainingTime':'Qalan Müddət',
+    'lbl.timeUp':'Müddət bitdi','lbl.elapsedTime':'Keçmiş Müddət','lbl.products':'Məhsullar',
+    'lbl.noProductYet':'Hələ məhsul əlavə edilməyib.','lbl.instantTotal':'Anlıq Cəm','lbl.orderTotal':'Alınacaq Məbləğ',
+    'lbl.discountField':'Endirim (AZN) — opsional, məs. müştəridən az aldınızsa',
+    'lbl.periodTransactionsSuffix':'Əməliyyatları',
+    'home.consoleUnit':'konsol','history.recordUnit':'qeyd',
+    'staff.noStaffYet':'Hələ personal əlavə edilməyib. Ayarlar > Personal bölümündən əlavə edə bilərsiniz.',
+    'staff.goToSettings':'Ayarlara Get',
+    'cloud.lastSync':'Son sinxronizasiya: {date}','cloud.neverSynced':'Hələ sinxronizasiya edilməyib.',
+    'settings.salonInfoDesc':'','settings.hourlyRatesDesc':'Konsol tipi əlavə edib hər biri üçün saatlıq qiymət təyin edə bilərsiniz (məs. PS5, Xbox, VR, Bilyard...).',
+    'settings.stationMgmtDesc':'Salonundakı fiziki konsolları/stansiyaları buradan əlavə edə və ya silə bilərsiniz.',
+    'settings.comboDesc':'Müddət + məhsulu tək qiymətə birləşdirən hazır paketlər (məs: "3 Saat PS5 + 1 Kola"). Başlat ekranında konsol tipinə görə göstərilir; qiymət paket qiymətinə sabitlənir.',
+    'settings.staffDesc':'Növbəyə girən personalı üst zolaqdakı "Növbə" nişanından seçə bilərsiniz; qeydlər personala görə hesabatlanır.',
+    'settings.backupDesc':'Bütün məlumatlar (konsollar, tarixçə, ayarlar) tək bir fayla saxlanılır. Telefon dəyişəndə və ya ehtiyat nüsxə almaq üçün istifadə et.',
+    'settings.cloudDescPrefix':'Məlumatlarını internet üzərindən yedəkləmək üçün pulsuz bir ',
+    'settings.cloudDescSuffix':' hesabı aç, yeni bir "Bin" yarat və aşağıya Bin ID ilə X-Master-Key məlumatlarını yapışdır.',
+    'settings.autoSyncLabel':'Hər dəyişiklikdə avtomatik buluda yedəklə',
+    'settings.logoSelect':'Loqo Seç','settings.salonName':'Salon Adı',
+    'settings.binId':'Bin ID','settings.apiKey':'X-Master-Key (API Açarı)',
+    'settings.newProductName':'Yeni məhsul adı','settings.priceAZN':'Qiymət (AZN)','settings.stockOptional':'Stok (opsional)',
+    'settings.noProductsYet':'Hələ məhsul yoxdur. Aşağıdan əlavə edə bilərsiniz.',
+    'settings.noComboYet':'Hələ kombo paket yoxdur.',
+    'settings.noStaffYetInline':'Hələ personal əlavə edilməyib.',
+    'settings.comboName':'Paket Adı','settings.comboType':'Konsol Tipi','settings.comboMinutes':'Müddət (dəqiqə)',
+    'settings.comboPrice':'Paket Qiyməti (AZN)','settings.comboIncludedProducts':'Daxil Məhsullar (opsional, birdən çox əlavə edilə bilər)',
+    'settings.comboAddToList':'+ Siyahıya Əlavə Et','settings.comboAddBtn':'Kombo Əlavə Et','settings.comboNoProductAdded':'Hələ məhsul əlavə edilməyib.',
+    'settings.newStaffName':'Yeni personal adı','settings.staffAddBtn':'Əlavə Et',
+    'settings.newDeviceTypeName':'məs: Xbox, VR, Bilyard','settings.hourlyRateAZN':'Saatlıq Qiymət (AZN)',
+    'settings.newStationName':'məs: Xbox-1','settings.deviceTypeAddBtn':'Əlavə Et','settings.stationAddBtn':'Əlavə Et',
+    'stock.trackingOff':'Stok izlənmir','stock.out':'Stok Bitib','stock.low':'Aşağı Stok: {n} ədəd','stock.ok':'Stokda: {n} ədəd',
+    'note.comboFixed':'qiymət sabit {price} AZN kimi tətbiq olunur (müddətə görə dəyişmir).',
+    'note.packageEarly':'{mins} dəq paket seçilmişdi, amma sessiya tez bitirildi ({used} istifadə edildi). Qiymət, istifadə olunan real müddət × saatlıq qiymətə görə hesablandı.',
+    'note.packageOver':'{mins} dəq paket müddəti aşıldı ({used} istifadə edildi). Qiymət, istifadə olunan real müddət × saatlıq qiymətə görə hesablandı.',
+    'print.dateTime':'Tarix/Saat','print.duration':'Müddət',
+    'card.game':'Oyun','card.product':'Məhsul','card.total':'Cəm',
+    'modal.openSession':'Açıq Sessiya Başlat (saatlıq {rate} AZN)',
+    'modal.orPackageTitle':'VƏ YA MÜDDƏT PAKETİ İLƏ BAŞLAT (geri sayım + xəbərdarlıq)',
+    'modal.packageDescNote':'Müddət seçmək sayğacı geri saydırır və müddət bitəndə xəbərdarlıq edir. Qiymət həmişə istifadə olunan real müddətə görə (saatlıq qiymətdən) hesablanır — tez bitərsə az, uzanarsa çox ödəyirsiniz.',
+    'modal.customDuration':'Xüsusi Müddət (dəqiqə)','modal.targetPrice':'Hədəf Qiymət (AZN) — yalnız məlumat üçün göstərilir',
+    'modal.startWithPackage':'Paketlə Başlat',
+    'toast.stockLeft':'{name}: {stock} ədəd qaldı',
   },
   ru: {
     'topbar.sub':'Панель Управления',
@@ -891,11 +1137,144 @@ const I18N = {
     'modal.yesDelete':'Да, Удалить','modal.staffSelect':'Выбрать Смену','modal.add':'Добавить',
     'pay.cash':'💵 Наличные','pay.card':'💳 Карта','pay.other':'🔖 Другое',
     'staff.pillDefault':'👤 Выбрать Смену','staff.none':'— Смена Не Указана —',
+    'toast.saveFailed':'Данные не сохранены! Возможно, хранилище переполнено.',
+    'toast.stationBusy':'Эта консоль уже занята.',
+    'toast.startedPlain':'{name} запущена.',
+    'toast.startedPackage':'{name} запущена (пакет {mins} мин).',
+    'toast.invalidDuration':'Введите корректную длительность.',
+    'toast.invalidPrice':'Введите корректную цену.',
+    'toast.comboStarted':'{name}: запущен комбо-пакет "{combo}".',
+    'toast.noProducts':'Сначала добавьте товар в Настройки > Товары.',
+    'toast.noProductSelected':'Товар не выбран.',
+    'toast.lowStockPrefix':'⚠️ Низкий запас: ',
+    'toast.productsAdded':'Товар(ы) добавлены.',
+    'toast.sessionSaved':'Сессия сохранена.',
+    'toast.invalidAmount':'Введите корректную сумму.',
+    'toast.amountUpdated':'Сумма обновлена: {amount} AZN',
+    'toast.recordDeleted':'Запись удалена.',
+    'toast.deviceTypeNameEmpty':'Название типа консоли не может быть пустым.',
+    'toast.deviceTypeRateInvalid':'Введите корректный почасовой тариф.',
+    'toast.deviceTypeDup':'Тип консоли с таким названием уже существует.',
+    'toast.deviceTypeAdded':'Тип консоли добавлен: {name}',
+    'toast.deviceTypeMinOne':'Должен остаться хотя бы один тип консоли.',
+    'toast.deviceTypeInUse':'Есть консоли этого типа; сначала удалите их или измените тип в Управлении консолями.',
+    'toast.deviceTypeDeleted':'Тип консоли удалён.',
+    'toast.stationNameEmpty':'Название консоли не может быть пустым.',
+    'toast.stationTypeMissing':'Сначала добавьте тип консоли.',
+    'toast.stationAdded':'Консоль добавлена: {name}',
+    'toast.stationInUse':'Эта консоль сейчас используется; сначала завершите сессию.',
+    'toast.stationDeleted':'Консоль удалена.',
+    'toast.productNameEmpty':'Название товара не может быть пустым.',
+    'toast.productStockInvalid':'Введите корректное количество товара на складе.',
+    'toast.productDup':'Товар с таким названием уже существует.',
+    'toast.productAdded':'Товар добавлен: {name}',
+    'toast.productDeleted':'Товар удалён.',
+    'toast.settingsSaved':'Настройки сохранены.',
+    'toast.comboProductNotSelected':'Выберите товар.',
+    'toast.comboNameEmpty':'Название пакета не может быть пустым.',
+    'toast.comboTypeMissing':'Сначала добавьте тип консоли в разделе Почасовые тарифы.',
+    'toast.comboAdded':'Комбо-пакет добавлен: {name}',
+    'toast.comboDeleted':'Комбо-пакет удалён.',
+    'toast.staffNameEmpty':'Имя сотрудника не может быть пустым.',
+    'toast.staffDup':'Сотрудник с таким именем уже существует.',
+    'toast.staffAdded':'Сотрудник добавлен: {name}',
+    'toast.staffDeleted':'Сотрудник удалён.',
+    'toast.shiftSet':'Смена: {name}',
+    'toast.shiftNone':'Смена не указана.',
+    'toast.cloudSettingsSaved':'Облачные настройки сохранены.',
+    'toast.cloudFieldsMissing':'Сначала введите и сохраните данные облачного резервного копирования.',
+    'toast.cloudUploaded':'☁️ Резервная копия загружена в облако.',
+    'toast.cloudUploadFailed':'Не удалось загрузить в облако. Проверьте Bin ID / API-ключ и подключение.',
+    'toast.cloudDownloadFailed':'Не удалось скачать из облака. Проверьте Bin ID / API-ключ и подключение.',
+    'toast.cloudInvalidData':'Данные в облаке не похожи на корректную резервную копию.',
+    'toast.cloudRestored':'☁️ Облачная резервная копия восстановлена.',
+    'toast.logoFailed':'Не удалось загрузить логотип.',
+    'toast.backupDownloaded':'Резервная копия скачана: {name}',
+    'toast.backupFailed':'Не удалось создать резервную копию.',
+    'toast.backupInvalidJson':'Неверный файл резервной копии (не удалось прочитать JSON).',
+    'toast.backupInvalidFile':'Этот файл не похож на корректную резервную копию.',
+    'toast.backupRestored':'Резервная копия успешно восстановлена.',
+    'toast.fileReadFailed':'Не удалось прочитать файл.',
+    'toast.packageExpired':'⏰ {name}: Время пакета истекло!',
+    'toast.packageWarning5min':'⏳ {name}: До окончания пакета осталось 5 минут.',
+    'confirm.deleteRecord':'Вы уверены, что хотите удалить эту запись? Это действие необратимо.',
+    'confirm.deleteRecordTitle':'Удалить запись',
+    'confirm.deleteDeviceType':'Вы уверены, что хотите удалить тип консоли "{name}"?',
+    'confirm.deleteDeviceTypeTitle':'Удалить тип консоли',
+    'confirm.deleteStation':'Вы уверены, что хотите удалить консоль "{name}"? Это не повлияет на историю.',
+    'confirm.deleteStationTitle':'Удалить консоль',
+    'confirm.deleteProduct':'Вы уверены, что хотите навсегда удалить товар "{name}"? Это не повлияет на историю.',
+    'confirm.deleteProductTitle':'Удалить товар',
+    'confirm.deleteCombo':'Вы уверены, что хотите удалить комбо-пакет "{name}"?',
+    'confirm.deleteComboTitle':'Удалить комбо-пакет',
+    'confirm.deleteStaff':'Вы уверены, что хотите удалить сотрудника "{name}"? Это не повлияет на историю.',
+    'confirm.deleteStaffTitle':'Удалить сотрудника',
+    'confirm.cloudRestore':'Если вы восстановите резервную копию из облака, все текущие данные (консоли, история, настройки) будут ЗАМЕНЕНЫ данными из этой копии. Это действие необратимо. Продолжить?',
+    'confirm.cloudRestoreTitle':'Восстановить из облака',
+    'confirm.fileRestore':'Если вы восстановите эту резервную копию, все текущие данные (консоли, история, настройки) будут ЗАМЕНЕНЫ данными из этой копии. Это действие необратимо. Продолжить?',
+    'confirm.fileRestoreTitle':'Восстановить из копии',
+    'lbl.console':'Консоль','lbl.comboPackage':'Комбо-пакет','lbl.staff':'Сотрудник','lbl.date':'Дата',
+    'lbl.start':'Начало','lbl.end':'Окончание','lbl.totalDuration':'Общее время','lbl.gameFee':'Плата за игру',
+    'lbl.productAmount':'Сумма за товары','lbl.soldProducts':'ПРОДАННЫЕ ТОВАРЫ',
+    'lbl.noProductSoldThisSession':'В этой сессии товары не продавались.','lbl.subtotal':'Промежуточный итог','lbl.discount':'Скидка',
+    'lbl.paymentMethod':'Способ оплаты','lbl.totalCollected':'Полученная сумма','lbl.editAmount':'✏️ Изменить сумму позже',
+    'lbl.newCollectedAmount':'Новая полученная сумма (AZN)','lbl.save':'Сохранить','lbl.status':'Статус',
+    'lbl.hourlyFee':'Почасовой тариф','lbl.packageDuration':'Длительность пакета','lbl.remainingTime':'Оставшееся время',
+    'lbl.timeUp':'Время истекло','lbl.elapsedTime':'Прошедшее время','lbl.products':'Товары',
+    'lbl.noProductYet':'Товары ещё не добавлены.','lbl.instantTotal':'Текущий итог','lbl.orderTotal':'Сумма к оплате',
+    'lbl.discountField':'Скидка (AZN) — необязательно, напр. если взяли с клиента меньше',
+    'lbl.periodTransactionsSuffix':'Операции',
+    'home.consoleUnit':'консолей','history.recordUnit':'записей',
+    'staff.noStaffYet':'Сотрудники ещё не добавлены. Вы можете добавить их в Настройки > Персонал.',
+    'staff.goToSettings':'Перейти в настройки',
+    'cloud.lastSync':'Последняя синхронизация: {date}','cloud.neverSynced':'Синхронизация ещё не выполнялась.',
+    'settings.salonInfoDesc':'','settings.hourlyRatesDesc':'Добавьте тип консоли и укажите почасовой тариф для каждого (напр. PS5, Xbox, VR, бильярд...).',
+    'settings.stationMgmtDesc':'Добавляйте или удаляйте физические консоли/станции вашего заведения здесь.',
+    'settings.comboDesc':'Готовые пакеты, объединяющие время и товар по одной цене (напр: "3 часа PS5 + 1 напиток"). Отображаются на экране запуска по типу консоли; цена фиксирована.',
+    'settings.staffDesc':'Выберите работающего сотрудника через значок "Смена" в верхней панели; записи будут учитываться по сотрудникам.',
+    'settings.backupDesc':'Все данные (консоли, история, настройки) сохраняются в один файл. Используйте при смене телефона или для резервного копирования.',
+    'settings.cloudDescPrefix':'Чтобы резервировать данные через интернет, создайте бесплатный аккаунт на ',
+    'settings.cloudDescSuffix':', создайте новый "Bin" и вставьте ниже Bin ID и X-Master-Key.',
+    'settings.autoSyncLabel':'Автоматически резервировать в облако при каждом изменении',
+    'settings.logoSelect':'Выбрать логотип','settings.salonName':'Название заведения',
+    'settings.binId':'Bin ID','settings.apiKey':'X-Master-Key (API-ключ)',
+    'settings.newProductName':'Название нового товара','settings.priceAZN':'Цена (AZN)','settings.stockOptional':'Склад (необязательно)',
+    'settings.noProductsYet':'Товаров пока нет. Вы можете добавить их ниже.',
+    'settings.noComboYet':'Комбо-пакетов пока нет.',
+    'settings.noStaffYetInline':'Сотрудники ещё не добавлены.',
+    'settings.comboName':'Название пакета','settings.comboType':'Тип консоли','settings.comboMinutes':'Длительность (минуты)',
+    'settings.comboPrice':'Цена пакета (AZN)','settings.comboIncludedProducts':'Включённые товары (необязательно, можно добавить несколько)',
+    'settings.comboAddToList':'+ Добавить в список','settings.comboAddBtn':'Добавить комбо','settings.comboNoProductAdded':'Товары ещё не добавлены.',
+    'settings.newStaffName':'Имя нового сотрудника','settings.staffAddBtn':'Добавить',
+    'settings.newDeviceTypeName':'напр: Xbox, VR, бильярд','settings.hourlyRateAZN':'Почасовой тариф (AZN)',
+    'settings.newStationName':'напр: Xbox-1','settings.deviceTypeAddBtn':'Добавить','settings.stationAddBtn':'Добавить',
+    'stock.trackingOff':'Учёт склада выключен','stock.out':'Товар закончился','stock.low':'Низкий запас: {n} шт','stock.ok':'В наличии: {n} шт',
+    'note.comboFixed':'применяется фиксированная цена {price} AZN (не зависит от времени).',
+    'note.packageEarly':'Был выбран пакет на {mins} мин, но сессия завершена раньше (использовано {used}). Плата рассчитана по фактическому времени × почасовой тариф.',
+    'note.packageOver':'Превышена длительность пакета {mins} мин (использовано {used}). Плата рассчитана по фактическому времени × почасовой тариф.',
+    'print.dateTime':'Дата/Время','print.duration':'Длительность',
+    'card.game':'Игра','card.product':'Товар','card.total':'Итого',
+    'modal.openSession':'Начать открытую сессию (тариф {rate} AZN/час)',
+    'modal.orPackageTitle':'ИЛИ НАЧАТЬ С ПАКЕТОМ ВРЕМЕНИ (обратный отсчёт + предупреждение)',
+    'modal.packageDescNote':'Выбор длительности запускает обратный отсчёт с предупреждением по истечении. Плата всегда рассчитывается по фактически использованному времени (по почасовому тарифу) — меньше при раннем завершении, больше при превышении.',
+    'modal.customDuration':'Своя длительность (минуты)','modal.targetPrice':'Целевая цена (AZN) — только для информации',
+    'modal.startWithPackage':'Начать с пакетом',
+    'toast.stockLeft':'{name}: осталось {stock} шт',
   }
 };
 function t(key){
   const lang = (typeof settings!=='undefined' && settings && settings.language) ? settings.language : 'tr';
   return (I18N[lang] && I18N[lang][key]) || I18N.tr[key] || key;
+}
+/* Yer tutuculu çeviri: tf('toast.stationAdded', {name:'PS5'}) gibi {name} yer tutucularını değiştirir */
+function tf(key, params){
+  let str = t(key);
+  if(params){
+    Object.keys(params).forEach(k=>{
+      str = str.split('{'+k+'}').join(params[k]);
+    });
+  }
+  return str;
 }
 function applyLanguage(){
   document.documentElement.lang = settings.language || 'tr';
@@ -912,6 +1291,13 @@ function applyLanguage(){
   document.querySelectorAll('.lang-btn').forEach(b=>{
     b.classList.toggle('selected', b.dataset.lang === (settings.language||'tr'));
   });
+  const cloudDescEl = document.getElementById('cloudDescText');
+  if(cloudDescEl){
+    cloudDescEl.innerHTML = t('settings.cloudDescPrefix') +
+      '<a href="https://jsonbin.io" target="_blank" rel="noopener" style="color:var(--orange-2)">jsonbin.io</a>' +
+      t('settings.cloudDescSuffix');
+  }
+  renderStaticIcons();
 }
 function setLanguage(lang){
   if(!['tr','az','ru'].includes(lang)) return;
@@ -988,7 +1374,7 @@ function safeSet(key, value){
     return true;
   }catch(e){
     console.warn('localStorage yazma hatası:', key, e);
-    showToast('Veri kaydedilemedi! Depolama alanı dolu olabilir.');
+    showToast(t('toast.saveFailed'));
     return false;
   }
 }
@@ -1185,9 +1571,9 @@ function renderStationCard(st, nowMs){
     ${timerHtml}
     ${st.status!=='empty' ? `
     <div class="cost-row">
-      <span>Oyun: <b>${cost.toFixed(2)} AZN</b></span>
-      <span>Ürün: <b>${prodCost.toFixed(2)} AZN</b></span>
-      <span>Toplam: <b>${total.toFixed(2)} AZN</b></span>
+      <span>${t('card.game')}: <b>${cost.toFixed(2)} AZN</b></span>
+      <span>${t('card.product')}: <b>${prodCost.toFixed(2)} AZN</b></span>
+      <span>${t('card.total')}: <b>${total.toFixed(2)} AZN</b></span>
     </div>` : `<div class="cost-row"><span>${t('station.noSession')}</span></div>`}
     ${actions}
   </div>`;
@@ -1203,7 +1589,7 @@ function renderStations(){
   const now = Date.now();
   const grid = document.getElementById('stationGrid');
   grid.innerHTML = stations.map(st => renderStationCard(st, now)).join('');
-  document.getElementById('homeSub').innerText = `${stations.length} konsol`;
+  document.getElementById('homeSub').innerText = `${stations.length} ${t('home.consoleUnit')}`;
 
   // Dashboard önizleme (aynı kartların küçük bir kopyası)
   document.getElementById('dashStationPreview').innerHTML = stations.map(st => renderStationCard(st, now)).join('');
@@ -1218,7 +1604,7 @@ function findStation(id){ return stations.find(s=>s.id===id); }
 function startStation(id, mode, packageMinutes, packagePrice){
   const st = findStation(id);
   if(!st) return;
-  if(st.status !== 'empty'){ showToast('Bu konsol zaten dolu.'); return; }
+  if(st.status !== 'empty'){ showToast(t('toast.stationBusy')); return; }
   st.status = 'busy';
   st.startTime = Date.now();
   st.pendingEnd = null;
@@ -1233,7 +1619,7 @@ function startStation(id, mode, packageMinutes, packagePrice){
   renderStations();
   renderDashboard();
   const modeLabel = mode === 'package' ? ` (${packageMinutes} dk paket)` : '';
-  showToast(`${st.name} başlatıldı${modeLabel}.`);
+  showToast(mode==='package' ? tf('toast.startedPackage', {name: st.name, mins: packageMinutes}) : tf('toast.startedPlain', {name: st.name}));
 }
 
 /* Bir kombonun ürün listesini döndürür (yeni çoklu-ürün formatı ya da eski tekli-ürün formatı) */
@@ -1266,15 +1652,15 @@ function openStartModal(id){
     }).join('')}
   ` : '';
 
-  document.getElementById('startModalTitle').innerText = st.name + ' — Başlat';
+  document.getElementById('startModalTitle').innerText = st.name + ' — ' + t('modal.start');
   document.getElementById('startModalBody').innerHTML = `
     <button class="btn btn-start btn-full" style="margin-bottom:14px" onclick="startStation('${id}','open')">
-      ▶ Açık Oturum Başlat (saatlik ${hourlyRate.toFixed(2)} AZN)
+      ▶ ${tf('modal.openSession', {rate: hourlyRate.toFixed(2)})}
     </button>
     ${combosHtml}
-    <div style="font-size:11.5px;color:var(--muted);margin:6px 0 10px;font-weight:700">VEYA SÜRE PAKETİ İLE BAŞLAT (geri sayım + uyarı)</div>
+    <div style="font-size:11.5px;color:var(--muted);margin:6px 0 10px;font-weight:700">${t('modal.orPackageTitle')}</div>
     <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5">
-      Süre seçmek sayacı geri saydırır ve süre bitince uyarır. Ücret her zaman gerçek kullanılan süreye göre (saatlik ücretten) hesaplanır — erken biterse az, uzarsa fazla öder.
+      ${t('modal.packageDescNote')}
     </div>
     <div class="pkg-preset-grid">
       ${[30,60,90,120].map(mins=>{
@@ -1283,14 +1669,14 @@ function openStartModal(id){
       }).join('')}
     </div>
     <div class="field" style="margin-top:14px">
-      <label>Özel Süre (dakika)</label>
+      <label>${t('modal.customDuration')}</label>
       <input type="number" min="1" step="1" id="customPkgMinutes" placeholder="örn: 45">
     </div>
     <div class="field">
-      <label>Hedef Ücret (AZN) — sadece bilgi amaçlı gösterilir</label>
+      <label>${t('modal.targetPrice')}</label>
       <input type="number" min="0" step="0.01" id="customPkgPrice" placeholder="örn: 4.00">
     </div>
-    <button class="btn btn-primary btn-full" onclick="startCustomPackage('${id}')">Paketle Başlat</button>
+    <button class="btn btn-primary btn-full" onclick="startCustomPackage('${id}')">${t('modal.startWithPackage')}</button>
   `;
   openModal('overlayStart');
 }
@@ -1301,8 +1687,8 @@ function selectPackagePreset(mins, price){
 function startCustomPackage(id){
   const mins = parseInt(document.getElementById('customPkgMinutes').value, 10);
   const price = parseFloat(document.getElementById('customPkgPrice').value);
-  if(!mins || mins <= 0){ showToast('Geçerli bir süre girin.'); return; }
-  if(isNaN(price) || price < 0){ showToast('Geçerli bir fiyat girin.'); return; }
+  if(!mins || mins <= 0){ showToast(t('toast.invalidDuration')); return; }
+  if(isNaN(price) || price < 0){ showToast(t('toast.invalidPrice')); return; }
   closeModal('overlayStart');
   startStation(id, 'package', mins, Math.round(price*100)/100);
 }
@@ -1335,7 +1721,7 @@ function startCombo(id, comboKey){
   saveStations();
   renderStations();
   renderDashboard();
-  showToast(`${st.name}: "${combo.label}" kombo paketi başlatıldı.`);
+  showToast(tf('toast.comboStarted', {name: st.name, combo: combo.label}));
 }
 
 /* ---- Ürün ekleme modalı ---- */
@@ -1367,7 +1753,7 @@ let productModalQtyState = {};
 function openProductModal(id){
   const st = findStation(id);
   if(!st) return;
-  if(settings.products.length===0){ showToast('Önce Ayarlar > Ürünler bölümünden ürün ekleyin.'); return; }
+  if(settings.products.length===0){ showToast(t('toast.noProducts')); return; }
   productModalTarget = id;
   productModalQtyState = {};
   settings.products.forEach(p => productModalQtyState[p.key] = 0);
@@ -1410,20 +1796,20 @@ function confirmAddProducts(){
       if(p.stock !== null && p.stock !== undefined){
         p.stock = Math.max(0, p.stock - qty);
         if(p.stock <= LOW_STOCK_THRESHOLD){
-          lowStockWarnings.push(`${p.label}: ${p.stock} adet kaldı`);
+          lowStockWarnings.push(tf('toast.stockLeft', {name: p.label, stock: p.stock}));
         }
       }
     }
   });
-  if(!addedAny){ showToast('Herhangi bir ürün seçilmedi.'); closeModal('overlayProduct'); return; }
+  if(!addedAny){ showToast(t('toast.noProductSelected')); closeModal('overlayProduct'); return; }
   saveSettings(); // stok değişikliklerini kalıcı kaydet
   saveStations();
   renderStations();
   closeModal('overlayProduct');
   if(lowStockWarnings.length){
-    showToast('⚠️ Düşük stok: ' + lowStockWarnings.join(', '));
+    showToast(t('toast.lowStockPrefix') + lowStockWarnings.join(', '));
   }else{
-    showToast('Ürün(ler) eklendi.');
+    showToast(t('toast.productsAdded'));
   }
 }
 
@@ -1452,36 +1838,36 @@ function beginEndSession(id){
   let earlyPackageNote = '';
   if(st.comboFixedPrice !== null && st.comboFixedPrice !== undefined){
     earlyPackageNote = `<div style="font-size:11.5px;color:var(--green);background:rgba(32,212,122,.12);border-radius:10px;padding:8px 10px;margin-bottom:10px">
-      🎁 Kombo Paket: ${escapeHtml(st.comboLabel||'')} — ücret sabit ${st.comboFixedPrice.toFixed(2)} AZN olarak uygulanır (süreye göre değişmez).
+      🎁 ${t('lbl.comboPackage')}: ${escapeHtml(st.comboLabel||'')} — ${tf('note.comboFixed', {price: st.comboFixedPrice.toFixed(2)})}
     </div>`;
   }else if(st.mode==='package' && st.packageMinutes){
     const packageSec = st.packageMinutes*60;
     if(sec < packageSec){
       earlyPackageNote = `<div style="font-size:11.5px;color:var(--yellow);background:rgba(255,200,77,.12);border-radius:10px;padding:8px 10px;margin-bottom:10px">
-        ⓘ ${st.packageMinutes} dk paket seçilmişti ama oturum erken bitirildi (${formatMinutesLabel(sec)} kullanıldı). Ücret, kullanılan gerçek süre × saatlik ücrete göre hesaplandı.
+        ⓘ ${tf('note.packageEarly', {mins: st.packageMinutes, used: formatMinutesLabel(sec)})}
       </div>`;
     }else if(sec > packageSec){
       earlyPackageNote = `<div style="font-size:11.5px;color:var(--yellow);background:rgba(255,200,77,.12);border-radius:10px;padding:8px 10px;margin-bottom:10px">
-        ⓘ ${st.packageMinutes} dk paket süresi aşıldı (${formatMinutesLabel(sec)} kullanıldı). Ücret, kullanılan gerçek süre × saatlik ücrete göre hesaplandı.
+        ⓘ ${tf('note.packageOver', {mins: st.packageMinutes, used: formatMinutesLabel(sec)})}
       </div>`;
     }
   }
 
   document.getElementById('endSummaryBody').innerHTML = `
     ${earlyPackageNote}
-    <div class="summary-line"><span>Konsol</span><b>${escapeHtml(st.name)}</b></div>
-    <div class="summary-line"><span>Toplam Süre</span><b>${formatHMS(sec)} (${formatMinutesLabel(sec)})</b></div>
-    <div class="summary-line"><span>Oyun Ücreti</span><b>${cost.toFixed(2)} AZN</b></div>
-    <div class="summary-line"><span>Ürünler</span><b>${prodCost.toFixed(2)} AZN</b></div>
+    <div class="summary-line"><span>${t('lbl.console')}</span><b>${escapeHtml(st.name)}</b></div>
+    <div class="summary-line"><span>${t('lbl.totalDuration')}</span><b>${formatHMS(sec)} (${formatMinutesLabel(sec)})</b></div>
+    <div class="summary-line"><span>${t('lbl.gameFee')}</span><b>${cost.toFixed(2)} AZN</b></div>
+    <div class="summary-line"><span>${t('lbl.products')}</span><b>${prodCost.toFixed(2)} AZN</b></div>
     ${st.products.length ? st.products.map(p=>`<div class="summary-line" style="opacity:.7;font-size:12px"><span>${p.name} x${p.qty}</span><span>${(p.price*p.qty).toFixed(2)} AZN</span></div>`).join('') : ''}
-    <div class="summary-line" style="border-bottom:none;padding-bottom:0"><span>Ara Toplam</span><b>${total.toFixed(2)} AZN</b></div>
+    <div class="summary-line" style="border-bottom:none;padding-bottom:0"><span>${t('lbl.subtotal')}</span><b>${total.toFixed(2)} AZN</b></div>
     <div class="field" style="margin-top:6px">
-      <label>İskonto (AZN) — opsiyonel, örn. müşteriden az aldıysan</label>
+      <label>${t('lbl.discountField')}</label>
       <input type="number" step="0.01" min="0" id="discountInput" value="0" oninput="updateEndSummaryTotal()">
     </div>
-    <div class="summary-line total"><span>Tahsil Edilecek Tutar</span><b id="endFinalTotal">${total.toFixed(2)} AZN</b></div>
+    <div class="summary-line total"><span>${t('lbl.orderTotal')}</span><b id="endFinalTotal">${total.toFixed(2)} AZN</b></div>
     <div class="field" style="margin-top:12px">
-      <label>Ödeme Yöntemi</label>
+      <label>${t('lbl.paymentMethod')}</label>
       <div class="pay-method-grid">
         <button type="button" class="pay-method-btn selected" id="payBtn-nakit" onclick="selectPaymentMethod('nakit')" data-i18n="pay.cash">💵 Nakit</button>
         <button type="button" class="pay-method-btn" id="payBtn-kart" onclick="selectPaymentMethod('kart')" data-i18n="pay.card">💳 Kart</button>
@@ -1573,7 +1959,7 @@ function confirmEndSession(){
   renderDashboard();
   renderHistory();
   renderReport();
-  showToast('Oturum kaydedildi.');
+  showToast(t('toast.sessionSaved'));
 }
 
 /* ---- Detay modalı ---- */
@@ -1586,25 +1972,25 @@ function openDetail(id){
   const total = Math.round((cost+prodCost)*100)/100;
   const sec = elapsedSeconds(st, now);
 
-  document.getElementById('detailTitle').innerText = st.name + ' — Detay';
+  document.getElementById('detailTitle').innerText = st.name + ' — ' + t('modal.detail');
   document.getElementById('detailBody').innerHTML = `
-    <div class="summary-line"><span>Durum</span><b>${st.status==='empty'?'Boş':(st.status==='ending'?'Bitiriliyor':'Dolu')}</b></div>
-    <div class="summary-line"><span>Saatlik Ücret</span><b>${rateFor(st.type).toFixed(2)} AZN</b></div>
+    <div class="summary-line"><span>${t('lbl.status')}</span><b>${st.status==='empty'?t('station.empty'):(st.status==='ending'?t('station.ending'):t('station.busy'))}</b></div>
+    <div class="summary-line"><span>${t('lbl.hourlyFee')}</span><b>${rateFor(st.type).toFixed(2)} AZN</b></div>
     ${st.status!=='empty' ? `
-      <div class="summary-line"><span>Başlangıç</span><b>${new Date(st.startTime).toLocaleTimeString('tr-TR')}</b></div>
+      <div class="summary-line"><span>${t('lbl.start')}</span><b>${new Date(st.startTime).toLocaleTimeString('tr-TR')}</b></div>
       ${st.comboFixedPrice!==null && st.comboFixedPrice!==undefined ? `
-        <div class="summary-line"><span>Kombo Paket</span><b>🎁 ${escapeHtml(st.comboLabel||'')} (${st.comboFixedPrice.toFixed(2)} AZN sabit)</b></div>
+        <div class="summary-line"><span>${t('lbl.comboPackage')}</span><b>🎁 ${escapeHtml(st.comboLabel||'')} (${st.comboFixedPrice.toFixed(2)} AZN sabit)</b></div>
       ` : ''}
       ${st.mode==='package' ? `
-        <div class="summary-line"><span>Paket Süresi</span><b>${st.packageMinutes} dk (${(st.packagePrice||0).toFixed(2)} AZN)</b></div>
-        <div class="summary-line"><span>Kalan Süre</span><b>${(()=>{const r=remainingSeconds(st,now); return r>=0 ? formatHMS(r) : 'Süre doldu (+'+formatHMS(-r)+')';})()}</b></div>
+        <div class="summary-line"><span>${t('lbl.packageDuration')}</span><b>${st.packageMinutes} dk (${(st.packagePrice||0).toFixed(2)} AZN)</b></div>
+        <div class="summary-line"><span>${t('lbl.remainingTime')}</span><b>${(()=>{const r=remainingSeconds(st,now); return r>=0 ? formatHMS(r) : t('lbl.timeUp')+' (+'+formatHMS(-r)+')';})()}</b></div>
       ` : ''}
-      <div class="summary-line"><span>Geçen Süre</span><b>${formatHMS(sec)}</b></div>
-      <div class="summary-line"><span>Oyun Ücreti</span><b>${cost.toFixed(2)} AZN</b></div>
-      <div class="summary-line"><span>Ürün Tutarı</span><b>${prodCost.toFixed(2)} AZN</b></div>
-      ${st.products.length ? '<div style="margin:8px 0 4px;font-size:12px;color:var(--muted)">Ürünler</div>' + st.products.map(p=>`<div class="summary-line" style="font-size:12.5px"><span>${p.name} x${p.qty}</span><span>${(p.price*p.qty).toFixed(2)} AZN</span></div>`).join('') : '<div style="font-size:12px;color:var(--muted);margin-top:6px">Henüz ürün eklenmedi.</div>'}
-      <div class="summary-line total"><span>Anlık Toplam</span><b>${total.toFixed(2)} AZN</b></div>
-    ` : `<div style="font-size:12.5px;color:var(--muted);margin-top:8px">Bu konsol şu anda kullanılmıyor.</div>`}
+      <div class="summary-line"><span>${t('lbl.elapsedTime')}</span><b>${formatHMS(sec)}</b></div>
+      <div class="summary-line"><span>${t('lbl.gameFee')}</span><b>${cost.toFixed(2)} AZN</b></div>
+      <div class="summary-line"><span>${t('lbl.productAmount')}</span><b>${prodCost.toFixed(2)} AZN</b></div>
+      ${st.products.length ? `<div style="margin:8px 0 4px;font-size:12px;color:var(--muted)">${t('lbl.products')}</div>` + st.products.map(p=>`<div class="summary-line" style="font-size:12.5px"><span>${p.name} x${p.qty}</span><span>${(p.price*p.qty).toFixed(2)} AZN</span></div>`).join('') : `<div style="font-size:12px;color:var(--muted);margin-top:6px">${t('lbl.noProductYet')}</div>`}
+      <div class="summary-line total"><span>${t('lbl.instantTotal')}</span><b>${total.toFixed(2)} AZN</b></div>
+    ` : `<div style="font-size:12.5px;color:var(--muted);margin-top:8px">${t('station.notInUse')}</div>`}
   `;
   openModal('overlayDetail');
 }
@@ -1787,7 +2173,7 @@ function openPeriodList(){
     .filter(s=> s.endTime >= range.startMs && s.endTime <= range.endMs)
     .sort((a,b)=> b.endTime - a.endTime);
 
-  document.getElementById('periodListTitle').innerText = range.label + ' İşlemleri';
+  document.getElementById('periodListTitle').innerText = range.label + ' ' + t('lbl.periodTransactionsSuffix');
 
   if(periodSessions.length===0){
     document.getElementById('periodListBody').innerHTML =
@@ -1823,7 +2209,7 @@ function printReport(){
   const revenue = Math.round(periodSessions.reduce((sum,s)=>sum+s.total,0)*100)/100;
   const customerCount = periodSessions.length;
   const totalDurationSec = periodSessions.reduce((sum,s)=>sum+s.durationSec,0);
-  const periodLabel = reportPeriod==='day' ? 'Günlük' : (reportPeriod==='week' ? 'Haftalık' : 'Aylık');
+  const periodLabel = reportPeriod==='day' ? t('report.day') : (reportPeriod==='week' ? t('report.week') : t('report.month'));
 
   let rowsHtml = '';
   if(periodSessions.length===0){
@@ -1846,14 +2232,14 @@ function printReport(){
 
   document.getElementById('printArea').innerHTML = `
     <h1>${escapeHtml(settings.salonName || 'Game Center')}</h1>
-    <h2>${periodLabel} Rapor — ${range.label}</h2>
+    <h2>${periodLabel} ${t('report.title')} — ${range.label}</h2>
     <div class="print-stats">
-      <div class="print-stat"><b>${revenue.toFixed(2)} AZN</b><span>Toplam Kazanç</span></div>
-      <div class="print-stat"><b>${customerCount}</b><span>Toplam Müşteri</span></div>
-      <div class="print-stat"><b>${formatMinutesLabel(totalDurationSec)}</b><span>Toplam Oyun Süresi</span></div>
+      <div class="print-stat"><b>${revenue.toFixed(2)} AZN</b><span>${t('report.totalRevenue')}</span></div>
+      <div class="print-stat"><b>${customerCount}</b><span>${t('report.totalCustomers')}</span></div>
+      <div class="print-stat"><b>${formatMinutesLabel(totalDurationSec)}</b><span>${t('report.totalTime')}</span></div>
     </div>
     <table>
-      <thead><tr><th>Konsol</th><th>Tarih/Saat</th><th>Süre</th><th>Ürünler</th><th>Personel</th><th>Tutar</th></tr></thead>
+      <thead><tr><th>${t('lbl.console')}</th><th>${t('print.dateTime')}</th><th>${t('print.duration')}</th><th>${t('lbl.products')}</th><th>${t('lbl.staff')}</th><th>${t('lbl.totalCollected')}</th></tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table>
   `;
@@ -1875,7 +2261,7 @@ function renderHistory(){
     return ok;
   });
 
-  document.getElementById('historyCount').innerText = `${filtered.length} kayıt`;
+  document.getElementById('historyCount').innerText = `${filtered.length} ${t('history.recordUnit')}`;
   const list = document.getElementById('historyList');
 
   if(filtered.length===0){
@@ -1911,28 +2297,28 @@ function openRecordDetail(sessionId){
   const startD = new Date(s.startTime);
   const endD = new Date(s.endTime);
 
-  document.getElementById('recordDetailTitle').innerText = escapeHtml(s.stationName) + ' — İşlem Detayı';
+  document.getElementById('recordDetailTitle').innerText = escapeHtml(s.stationName) + ' — ' + t('modal.recordDetail');
   document.getElementById('recordDetailBody').innerHTML = `
-    <div class="summary-line"><span>Konsol</span><b>${escapeHtml(s.stationName)}</b></div>
-    ${s.comboLabel ? `<div class="summary-line"><span>Kombo Paket</span><b>🎁 ${escapeHtml(s.comboLabel)}</b></div>` : ''}
-    ${s.staffName ? `<div class="summary-line"><span>Personel</span><b>👤 ${escapeHtml(s.staffName)}</b></div>` : ''}
-    <div class="summary-line"><span>Tarih</span><b>${endD.toLocaleDateString('tr-TR')}</b></div>
-    <div class="summary-line"><span>Başlangıç</span><b>${startD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
-    <div class="summary-line"><span>Bitiş</span><b>${endD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
-    <div class="summary-line"><span>Toplam Süre</span><b>${formatHMS(s.durationSec)} (${formatMinutesLabel(s.durationSec)})</b></div>
-    <div class="summary-line"><span>Oyun Ücreti</span><b>${s.gameCost.toFixed(2)} AZN</b></div>
-    <div class="summary-line"><span>Ürün Tutarı</span><b>${s.productsCost.toFixed(2)} AZN</b></div>
+    <div class="summary-line"><span>${t('lbl.console')}</span><b>${escapeHtml(s.stationName)}</b></div>
+    ${s.comboLabel ? `<div class="summary-line"><span>${t('lbl.comboPackage')}</span><b>🎁 ${escapeHtml(s.comboLabel)}</b></div>` : ''}
+    ${s.staffName ? `<div class="summary-line"><span>${t('lbl.staff')}</span><b>👤 ${escapeHtml(s.staffName)}</b></div>` : ''}
+    <div class="summary-line"><span>${t('lbl.date')}</span><b>${endD.toLocaleDateString('tr-TR')}</b></div>
+    <div class="summary-line"><span>${t('lbl.start')}</span><b>${startD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
+    <div class="summary-line"><span>${t('lbl.end')}</span><b>${endD.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}</b></div>
+    <div class="summary-line"><span>${t('lbl.totalDuration')}</span><b>${formatHMS(s.durationSec)} (${formatMinutesLabel(s.durationSec)})</b></div>
+    <div class="summary-line"><span>${t('lbl.gameFee')}</span><b>${s.gameCost.toFixed(2)} AZN</b></div>
+    <div class="summary-line"><span>${t('lbl.productAmount')}</span><b>${s.productsCost.toFixed(2)} AZN</b></div>
     ${s.products.length ? `
-      <div style="margin:10px 0 4px;font-size:12px;color:var(--muted);font-weight:700">SATILAN ÜRÜNLER</div>
+      <div style="margin:10px 0 4px;font-size:12px;color:var(--muted);font-weight:700">${t('lbl.soldProducts')}</div>
       ${s.products.map(p=>`<div class="summary-line" style="font-size:13px"><span>${escapeHtml(p.name)} x${p.qty}</span><span>${(p.price*p.qty).toFixed(2)} AZN</span></div>`).join('')}
-    ` : `<div style="font-size:12px;color:var(--muted);margin-top:8px">Bu oturumda ürün satılmadı.</div>`}
+    ` : `<div style="font-size:12px;color:var(--muted);margin-top:8px">${t('lbl.noProductSoldThisSession')}</div>`}
     ${s.discount > 0 ? `
-      <div class="summary-line"><span>Ara Toplam</span><b>${(s.subtotal||s.total).toFixed(2)} AZN</b></div>
-      <div class="summary-line" style="color:var(--yellow)"><span>İskonto</span><b>-${s.discount.toFixed(2)} AZN</b></div>
+      <div class="summary-line"><span>${t('lbl.subtotal')}</span><b>${(s.subtotal||s.total).toFixed(2)} AZN</b></div>
+      <div class="summary-line" style="color:var(--yellow)"><span>${t('lbl.discount')}</span><b>-${s.discount.toFixed(2)} AZN</b></div>
     ` : ''}
-    <div class="summary-line"><span>Ödeme Yöntemi</span><b>${paymentMethodLabel(s.paymentMethod)}</b></div>
-    <div class="summary-line total"><span>Tahsil Edilen Tutar</span><b id="recordTotalDisplay">${s.total.toFixed(2)} AZN</b></div>
-    <button class="btn btn-ghost btn-full" style="margin-top:12px" onclick="startEditRecordAmount('${s.id}')">✏️ Tutarı Sonradan Düzelt</button>
+    <div class="summary-line"><span>${t('lbl.paymentMethod')}</span><b>${paymentMethodLabel(s.paymentMethod)}</b></div>
+    <div class="summary-line total"><span>${t('lbl.totalCollected')}</span><b id="recordTotalDisplay">${s.total.toFixed(2)} AZN</b></div>
+    <button class="btn btn-ghost btn-full" style="margin-top:12px" onclick="startEditRecordAmount('${s.id}')">${t('lbl.editAmount')}</button>
   `;
   openModal('overlayRecordDetail');
 }
@@ -1945,11 +2331,11 @@ function startEditRecordAmount(sessionId){
   const curMethod = s.paymentMethod || 'nakit';
   document.getElementById('recordDetailBody').innerHTML += `
     <div class="field" style="margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px">
-      <label>Yeni Tahsil Edilen Tutar (AZN)</label>
+      <label>${t('lbl.newCollectedAmount')}</label>
       <input type="number" step="0.01" min="0" id="editTotalInput" value="${s.total}">
     </div>
     <div class="field">
-      <label>Ödeme Yöntemi</label>
+      <label>${t('lbl.paymentMethod')}</label>
       <div class="pay-method-grid">
         <button type="button" class="pay-method-btn ${curMethod==='nakit'?'selected':''}" id="editPayBtn-nakit" onclick="selectEditPaymentMethod('nakit')">${t('pay.cash')}</button>
         <button type="button" class="pay-method-btn ${curMethod==='kart'?'selected':''}" id="editPayBtn-kart" onclick="selectEditPaymentMethod('kart')">${t('pay.card')}</button>
@@ -1957,8 +2343,8 @@ function startEditRecordAmount(sessionId){
       </div>
     </div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="openRecordDetail('${s.id}')">Vazgeç</button>
-      <button class="btn btn-primary" onclick="saveEditedRecordAmount('${s.id}')">Kaydet</button>
+      <button class="btn btn-ghost" onclick="openRecordDetail('${s.id}')">${t('modal.cancel')}</button>
+      <button class="btn btn-primary" onclick="saveEditedRecordAmount('${s.id}')">${t('lbl.save')}</button>
     </div>
   `;
   editSelectedPayment = curMethod;
@@ -1978,7 +2364,7 @@ function saveEditedRecordAmount(sessionId){
   if(!s) return;
   const input = document.getElementById('editTotalInput');
   let newTotal = parseFloat(input.value);
-  if(isNaN(newTotal) || newTotal < 0){ showToast('Geçerli bir tutar girin.'); return; }
+  if(isNaN(newTotal) || newTotal < 0){ showToast(t('toast.invalidAmount')); return; }
   newTotal = Math.round(newTotal*100)/100;
 
   const subtotal = (s.subtotal !== undefined && s.subtotal !== null) ? s.subtotal : Math.round((s.gameCost + s.productsCost)*100)/100;
@@ -1992,17 +2378,17 @@ function saveEditedRecordAmount(sessionId){
   renderReport();
   renderDashboard();
   openRecordDetail(sessionId); // güncel haliyle tekrar göster
-  showToast('Tutar güncellendi: ' + newTotal.toFixed(2) + ' AZN');
+  showToast(tf('toast.amountUpdated', {amount: newTotal.toFixed(2)}));
 }
 function deleteSession(id){
-  askConfirm('Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.', function(){
+  askConfirm(t('confirm.deleteRecord'), function(){
     sessions = sessions.filter(s=>s.id!==id);
     saveSessions();
     renderHistory();
     renderReport();
     renderDashboard();
-    showToast('Kayıt silindi.');
-  }, 'Kaydı Sil');
+    showToast(t('toast.recordDeleted'));
+  }, t('confirm.deleteRecordTitle'));
 }
 function clearFilters(){
   document.getElementById('searchBox').value='';
@@ -2023,10 +2409,10 @@ function renderSettingsForm(){
     const stockBadge = productStockBadgeHtml(p);
     return `
     <div class="prod-edit-row">
-      <input type="text" id="prodname_${p.key}" value="${escapeHtml(p.label)}" placeholder="Ürün adı">
-      <input type="number" step="0.01" id="prod_${p.key}" value="${p.price}" placeholder="Fiyat">
-      <input type="number" step="1" min="0" id="prodstock_${p.key}" value="${p.stock===null||p.stock===undefined?'':p.stock}" placeholder="Stok" style="max-width:70px">
-      <button class="hi-del" onclick="deleteProductDef('${p.key}')" title="Ürünü sil">${ic('trash',15)}</button>
+      <input type="text" id="prodname_${p.key}" value="${escapeHtml(p.label)}" placeholder="${t('settings.newProductName')}">
+      <input type="number" step="0.01" id="prod_${p.key}" value="${p.price}" placeholder="${t('settings.priceAZN')}">
+      <input type="number" step="1" min="0" id="prodstock_${p.key}" value="${p.stock===null||p.stock===undefined?'':p.stock}" placeholder="${t('settings.stockOptional')}" style="max-width:70px">
+      <button class="hi-del" onclick="deleteProductDef('${p.key}')" title="${t('confirm.deleteProductTitle')}">${ic('trash',15)}</button>
     </div>
     <div style="margin:-4px 0 9px 2px">${stockBadge}</div>
   `;}).join('');
@@ -2034,15 +2420,15 @@ function renderSettingsForm(){
   // Yeni ürün ekleme satırı
   const addRowHtml = `
     <div class="prod-edit-row add-row">
-      <input type="text" id="newProductName" placeholder="Yeni ürün adı">
-      <input type="number" step="0.01" id="newProductPrice" placeholder="Fiyat (AZN)">
-      <input type="number" step="1" min="0" id="newProductStock" placeholder="Stok (opsiyonel)" style="max-width:110px">
-      <button class="btn btn-primary small" onclick="addProductDefFromForm()">${ic('cart',14)} Ekle</button>
+      <input type="text" id="newProductName" placeholder="${t('settings.newProductName')}">
+      <input type="number" step="0.01" id="newProductPrice" placeholder="${t('settings.priceAZN')}">
+      <input type="number" step="1" min="0" id="newProductStock" placeholder="${t('settings.stockOptional')}" style="max-width:110px">
+      <button class="btn btn-primary small" onclick="addProductDefFromForm()">${ic('cart',14)} ${t('modal.add')}</button>
     </div>
   `;
 
   document.getElementById('productSettingsList').innerHTML =
-    (settings.products.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">Henüz ürün yok. Aşağıdan ekleyebilirsiniz.</div>`)
+    (settings.products.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">${t('settings.noProductsYet')}</div>`)
     + addRowHtml;
 
   updateLogoPreview();
@@ -2057,16 +2443,16 @@ function renderSettingsForm(){
 function renderDeviceTypesSettings(){
   const rowsHtml = settings.deviceTypes.map(d=>`
     <div class="prod-edit-row">
-      <input type="text" id="devtype_label_${d.key}" value="${escapeHtml(d.label)}" placeholder="Ad">
-      <input type="number" step="0.01" min="0" id="devtype_rate_${d.key}" value="${d.rate}" placeholder="Saatlik Ücret">
-      <button class="hi-del" onclick="deleteDeviceType('${d.key}')" title="Konsol tipini sil">${ic('trash',15)}</button>
+      <input type="text" id="devtype_label_${d.key}" value="${escapeHtml(d.label)}" placeholder="${t('lbl.console')}">
+      <input type="number" step="0.01" min="0" id="devtype_rate_${d.key}" value="${d.rate}" placeholder="${t('lbl.hourlyFee')}">
+      <button class="hi-del" onclick="deleteDeviceType('${d.key}')" title="${t('confirm.deleteDeviceTypeTitle')}">${ic('trash',15)}</button>
     </div>
   `).join('');
   const addRowHtml = `
     <div class="prod-edit-row add-row">
-      <input type="text" id="newDeviceTypeName" placeholder="örn: Xbox, VR, Bilardo">
-      <input type="number" step="0.01" min="0" id="newDeviceTypeRate" placeholder="Saatlik Ücret (AZN)">
-      <button class="btn btn-primary small" onclick="addDeviceTypeFromForm()">${ic('gamepad',14)} Ekle</button>
+      <input type="text" id="newDeviceTypeName" placeholder="${t('settings.newDeviceTypeName')}">
+      <input type="number" step="0.01" min="0" id="newDeviceTypeRate" placeholder="${t('settings.hourlyRateAZN')}">
+      <button class="btn btn-primary small" onclick="addDeviceTypeFromForm()">${ic('gamepad',14)} ${t('settings.deviceTypeAddBtn')}</button>
     </div>
   `;
   document.getElementById('deviceTypeSettingsList').innerHTML = rowsHtml + addRowHtml;
@@ -2076,30 +2462,30 @@ function addDeviceTypeFromForm(){
   const rateInput = document.getElementById('newDeviceTypeRate');
   const name = (nameInput.value||'').trim();
   const rate = parseFloat(rateInput.value);
-  if(!name){ showToast('Konsol tipi adı boş olamaz.'); return; }
-  if(isNaN(rate) || rate < 0){ showToast('Geçerli bir saatlik ücret girin.'); return; }
+  if(!name){ showToast(t('toast.deviceTypeNameEmpty')); return; }
+  if(isNaN(rate) || rate < 0){ showToast(t('toast.deviceTypeRateInvalid')); return; }
   const dup = settings.deviceTypes.some(d=> d.label.trim().toLowerCase() === name.toLowerCase());
-  if(dup){ showToast('Bu isimde bir konsol tipi zaten var.'); return; }
+  if(dup){ showToast(t('toast.deviceTypeDup')); return; }
   const key = 'type_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   settings.deviceTypes.push({ key, label:name, rate: Math.round(rate*100)/100 });
   saveSettings();
   renderDeviceTypesSettings();
   renderStationsSettings(); // yeni tip, konsol ekleme formunda da görünsün
-  showToast('Konsol tipi eklendi: ' + name);
+  showToast(tf('toast.deviceTypeAdded', {name}));
 }
 function deleteDeviceType(key){
-  if(settings.deviceTypes.length <= 1){ showToast('En az bir konsol tipi kalmalı.'); return; }
+  if(settings.deviceTypes.length <= 1){ showToast(t('toast.deviceTypeMinOne')); return; }
   const inUse = stations.some(s=>s.type===key);
-  if(inUse){ showToast("Bu tipte konsol(lar) var; önce Konsol Yönetimi'nden onları silin veya tipini değiştirin."); return; }
+  if(inUse){ showToast(t('toast.deviceTypeInUse')); return; }
   const d = settings.deviceTypes.find(x=>x.key===key);
   if(!d) return;
-  askConfirm(`"${d.label}" konsol tipini silmek istediğinize emin misiniz?`, function(){
+  askConfirm(tf('confirm.deleteDeviceType', {name: d.label}), function(){
     settings.deviceTypes = settings.deviceTypes.filter(x=>x.key!==key);
     saveSettings();
     renderDeviceTypesSettings();
     renderStationsSettings();
-    showToast('Konsol tipi silindi.');
-  }, 'Konsol Tipini Sil');
+    showToast(t('toast.deviceTypeDeleted'));
+  }, t('confirm.deleteDeviceTypeTitle'));
 }
 
 /* ================================================================
@@ -2113,16 +2499,16 @@ function renderStationsSettings(){
 
   const rowsHtml = stations.map(s=>`
     <div class="prod-edit-row">
-      <input type="text" id="stname_${s.id}" value="${escapeHtml(s.name)}" placeholder="Konsol adı">
+      <input type="text" id="stname_${s.id}" value="${escapeHtml(s.name)}" placeholder="${t('lbl.console')}">
       <select id="sttype_${s.id}" style="${selectStyle}">${typeOptionsFor(s.type)}</select>
-      <button class="hi-del" onclick="deleteStationDef('${s.id}')" title="Konsolu sil">${ic('trash',15)}</button>
+      <button class="hi-del" onclick="deleteStationDef('${s.id}')" title="${t('confirm.deleteStationTitle')}">${ic('trash',15)}</button>
     </div>
   `).join('');
   const addRowHtml = `
     <div class="prod-edit-row add-row">
-      <input type="text" id="newStationName" placeholder="örn: Xbox-1">
+      <input type="text" id="newStationName" placeholder="${t('settings.newStationName')}">
       <select id="newStationType" style="${selectStyle}">${typeOptionsFor(null)}</select>
-      <button class="btn btn-primary small" onclick="addStationFromForm()">${ic('gamepad',14)} Ekle</button>
+      <button class="btn btn-primary small" onclick="addStationFromForm()">${ic('gamepad',14)} ${t('settings.stationAddBtn')}</button>
     </div>
   `;
   document.getElementById('stationSettingsList').innerHTML = rowsHtml + addRowHtml;
@@ -2132,38 +2518,38 @@ function addStationFromForm(){
   const typeSelect = document.getElementById('newStationType');
   const name = (nameInput.value||'').trim();
   const type = typeSelect.value;
-  if(!name){ showToast('Konsol adı boş olamaz.'); return; }
-  if(!type){ showToast('Önce bir konsol tipi ekleyin.'); return; }
+  if(!name){ showToast(t('toast.stationNameEmpty')); return; }
+  if(!type){ showToast(t('toast.stationTypeMissing')); return; }
   const id = 'st_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   stations.push({id, name, type, status:'empty', startTime:null, pendingEnd:null, products:[], mode:'open', packageMinutes:null, packagePrice:null, comboFixedPrice:null, comboLabel:null});
   saveStations();
   renderStationsSettings();
   renderStations();
   renderDashboard();
-  showToast('Konsol eklendi: ' + name);
+  showToast(tf('toast.stationAdded', {name}));
 }
 function deleteStationDef(id){
   const s = findStation(id);
   if(!s) return;
-  if(s.status !== 'empty'){ showToast('Bu konsol şu anda kullanımda; önce oturumu bitirin.'); return; }
-  askConfirm(`"${s.name}" konsolunu silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.`, function(){
+  if(s.status !== 'empty'){ showToast(t('toast.stationInUse')); return; }
+  askConfirm(tf('confirm.deleteStation', {name: s.name}), function(){
     stations = stations.filter(x=>x.id!==id);
     saveStations();
     renderStationsSettings();
     renderStations();
     renderDashboard();
-    showToast('Konsol silindi.');
-  }, 'Konsolu Sil');
+    showToast(t('toast.stationDeleted'));
+  }, t('confirm.deleteStationTitle'));
 }
 
 // Bir ürünün stok durumunu küçük renkli bir rozet olarak döndürür.
 // Stok takip edilmiyorsa (null/undefined) boş döner.
 const LOW_STOCK_THRESHOLD = 5;
 function productStockBadgeHtml(p){
-  if(p.stock === null || p.stock === undefined || p.stock === '') return '<span style="font-size:10.5px;color:var(--muted)">Stok takibi kapalı</span>';
-  if(p.stock <= 0) return `<span class="stock-badge out">Stok Tükendi</span>`;
-  if(p.stock <= LOW_STOCK_THRESHOLD) return `<span class="stock-badge low">Düşük Stok: ${p.stock} adet</span>`;
-  return `<span class="stock-badge ok">Stokta: ${p.stock} adet</span>`;
+  if(p.stock === null || p.stock === undefined || p.stock === '') return `<span style="font-size:10.5px;color:var(--muted)">${t('stock.trackingOff')}</span>`;
+  if(p.stock <= 0) return `<span class="stock-badge out">${t('stock.out')}</span>`;
+  if(p.stock <= LOW_STOCK_THRESHOLD) return `<span class="stock-badge low">${tf('stock.low',{n:p.stock})}</span>`;
+  return `<span class="stock-badge ok">${tf('stock.ok',{n:p.stock})}</span>`;
 }
 
 /* ---- Ürün tanımı ekleme / silme (Ayarlar > Ürün Fiyatları) ---- */
@@ -2175,29 +2561,29 @@ function addProductDefFromForm(){
   const priceVal = parseFloat(priceInput.value);
   const stockVal = stockInput.value.trim()==='' ? null : parseInt(stockInput.value, 10);
 
-  if(!name){ showToast('Ürün adı boş olamaz.'); return; }
-  if(isNaN(priceVal) || priceVal < 0){ showToast('Geçerli bir fiyat girin.'); return; }
-  if(stockVal !== null && (isNaN(stockVal) || stockVal < 0)){ showToast('Geçerli bir stok miktarı girin.'); return; }
+  if(!name){ showToast(t('toast.productNameEmpty')); return; }
+  if(isNaN(priceVal) || priceVal < 0){ showToast(t('toast.invalidPrice')); return; }
+  if(stockVal !== null && (isNaN(stockVal) || stockVal < 0)){ showToast(t('toast.productStockInvalid')); return; }
 
   // Aynı isimde ürün var mı kontrolü (büyük/küçük harf duyarsız)
   const dup = settings.products.some(p=> p.label.trim().toLowerCase() === name.toLowerCase());
-  if(dup){ showToast('Bu isimde bir ürün zaten var.'); return; }
+  if(dup){ showToast(t('toast.productDup')); return; }
 
   const key = 'p_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   settings.products.push({ key, label:name, price: Math.round(priceVal*100)/100, stock: stockVal });
   saveSettings();
   renderSettingsForm();
-  showToast('Ürün eklendi: ' + name);
+  showToast(tf('toast.productAdded', {name}));
 }
 function deleteProductDef(key){
   const p = findProductDef(key);
   if(!p) return;
-  askConfirm(`"${p.label}" ürününü kalıcı olarak silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.`, function(){
+  askConfirm(tf('confirm.deleteProduct', {name: p.label}), function(){
     settings.products = settings.products.filter(x=>x.key!==key);
     saveSettings();
     renderSettingsForm();
-    showToast('Ürün silindi.');
-  }, 'Ürünü Sil');
+    showToast(t('toast.productDeleted'));
+  }, t('confirm.deleteProductTitle'));
 }
 function updateLogoPreview(){
   const previewSettings = document.getElementById('settingsLogoPreview');
@@ -2258,7 +2644,7 @@ function saveSettingsForm(){
   renderStations();
   renderDashboard();
   renderStaffPill();
-  showToast('Ayarlar kaydedildi.');
+  showToast(t('toast.settingsSaved'));
 }
 
 /* ================================================================
@@ -2289,26 +2675,26 @@ function renderCombosSettings(){
   const typeOptions = settings.deviceTypes.map(d=>`<option value="${d.key}">${escapeHtml(d.label)}</option>`).join('');
 
   const addFormHtml = `
-    <div class="field"><label>Paket Adı</label><input type="text" id="newComboName" placeholder="örn: 3 Saat PS5 + İçecek"></div>
-    <div class="field"><label>Konsol Tipi</label>
+    <div class="field"><label>${t('settings.comboName')}</label><input type="text" id="newComboName" placeholder="örn: 3 Saat PS5 + İçecek"></div>
+    <div class="field"><label>${t('settings.comboType')}</label>
       <select id="newComboType">${typeOptions}</select>
     </div>
-    <div class="field"><label>Süre (dakika)</label><input type="number" min="1" step="1" id="newComboMinutes" placeholder="örn: 180"></div>
-    <div class="field"><label>Paket Fiyatı (AZN)</label><input type="number" min="0" step="0.01" id="newComboPrice" placeholder="örn: 8.00"></div>
+    <div class="field"><label>${t('settings.comboMinutes')}</label><input type="number" min="1" step="1" id="newComboMinutes" placeholder="örn: 180"></div>
+    <div class="field"><label>${t('settings.comboPrice')}</label><input type="number" min="0" step="0.01" id="newComboPrice" placeholder="örn: 8.00"></div>
     <div class="field">
-      <label>Dahil Ürünler (opsiyonel, birden fazla eklenebilir)</label>
+      <label>${t('settings.comboIncludedProducts')}</label>
       <div style="display:flex;gap:8px">
-        <select id="newComboProduct" style="flex:1.4">${productOptions || '<option value="">Önce ürün ekleyin</option>'}</select>
+        <select id="newComboProduct" style="flex:1.4">${productOptions || `<option value="">${t('settings.noProductsYet')}</option>`}</select>
         <input type="number" min="1" step="1" id="newComboProductQty" value="1" style="flex:.6">
       </div>
-      <button type="button" class="btn btn-ghost btn-full" style="margin-top:8px" onclick="addComboBuilderProduct()">+ Listeye Ekle</button>
+      <button type="button" class="btn btn-ghost btn-full" style="margin-top:8px" onclick="addComboBuilderProduct()">${t('settings.comboAddToList')}</button>
       <div id="comboBuilderList" style="margin-top:8px"></div>
     </div>
-    <button class="btn btn-primary btn-full" onclick="addComboFromForm()">${ic('cart',14)} Kombo Ekle</button>
+    <button class="btn btn-primary btn-full" onclick="addComboFromForm()">${ic('cart',14)} ${t('settings.comboAddBtn')}</button>
   `;
 
   document.getElementById('comboSettingsList').innerHTML =
-    (settings.combos.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">Henüz kombo paket yok.</div>`)
+    (settings.combos.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">${t('settings.noComboYet')}</div>`)
     + `<div style="margin-top:${settings.combos.length?'14px':'0'};padding-top:${settings.combos.length?'14px':'0'};${settings.combos.length?'border-top:1px dashed rgba(255,255,255,.14)':''}">${addFormHtml}</div>`;
 
   renderComboBuilderProducts();
@@ -2319,7 +2705,7 @@ function renderComboBuilderProducts(){
   const el = document.getElementById('comboBuilderList');
   if(!el) return;
   if(comboBuilderProducts.length===0){
-    el.innerHTML = `<div style="font-size:11.5px;color:var(--muted)">Henüz ürün eklenmedi.</div>`;
+    el.innerHTML = `<div style="font-size:11.5px;color:var(--muted)">${t('settings.comboNoProductAdded')}</div>`;
     return;
   }
   el.innerHTML = comboBuilderProducts.map((p,idx)=>{
@@ -2335,7 +2721,7 @@ function addComboBuilderProduct(){
   const qtyEl = document.getElementById('newComboProductQty');
   const key = sel.value;
   const qty = parseInt(qtyEl.value, 10) || 1;
-  if(!key){ showToast('Bir ürün seçin.'); return; }
+  if(!key){ showToast(t('toast.comboProductNotSelected')); return; }
   const existing = comboBuilderProducts.find(p=>p.key===key);
   if(existing){ existing.qty += qty; } else { comboBuilderProducts.push({key, qty}); }
   renderComboBuilderProducts();
@@ -2351,10 +2737,10 @@ function addComboFromForm(){
   const minutes = parseInt(document.getElementById('newComboMinutes').value, 10);
   const price = parseFloat(document.getElementById('newComboPrice').value);
 
-  if(!name){ showToast('Paket adı boş olamaz.'); return; }
-  if(!stationType){ showToast('Önce Saatlik Ücretler bölümünden bir konsol tipi ekleyin.'); return; }
-  if(!minutes || minutes<=0){ showToast('Geçerli bir süre girin.'); return; }
-  if(isNaN(price) || price<0){ showToast('Geçerli bir fiyat girin.'); return; }
+  if(!name){ showToast(t('toast.comboNameEmpty')); return; }
+  if(!stationType){ showToast(t('toast.comboTypeMissing')); return; }
+  if(!minutes || minutes<=0){ showToast(t('toast.invalidDuration')); return; }
+  if(isNaN(price) || price<0){ showToast(t('toast.invalidPrice')); return; }
 
   const key = 'combo_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   settings.combos.push({
@@ -2365,17 +2751,17 @@ function addComboFromForm(){
   comboBuilderProducts = [];
   saveSettings();
   renderCombosSettings();
-  showToast('Kombo paket eklendi: ' + name);
+  showToast(tf('toast.comboAdded', {name}));
 }
 function deleteCombo(key){
   const c = settings.combos.find(x=>x.key===key);
   if(!c) return;
-  askConfirm(`"${c.label}" kombo paketini silmek istediğinize emin misiniz?`, function(){
+  askConfirm(tf('confirm.deleteCombo', {name: c.label}), function(){
     settings.combos = settings.combos.filter(x=>x.key!==key);
     saveSettings();
     renderCombosSettings();
-    showToast('Kombo paket silindi.');
-  }, 'Kombo Paketi Sil');
+    showToast(t('toast.comboDeleted'));
+  }, t('confirm.deleteComboTitle'));
 }
 
 /* ================================================================
@@ -2384,42 +2770,42 @@ function deleteCombo(key){
 function renderStaffSettings(){
   const rowsHtml = settings.staff.map(s=>`
     <div class="prod-edit-row">
-      <input type="text" id="staffname_${s.key}" value="${escapeHtml(s.label)}" placeholder="Personel adı">
-      <button class="hi-del" onclick="deleteStaff('${s.key}')" title="Personeli sil">${ic('trash',15)}</button>
+      <input type="text" id="staffname_${s.key}" value="${escapeHtml(s.label)}" placeholder="${t('settings.newStaffName')}">
+      <button class="hi-del" onclick="deleteStaff('${s.key}')" title="${t('confirm.deleteStaffTitle')}">${ic('trash',15)}</button>
     </div>
   `).join('');
   const addRowHtml = `
     <div class="prod-edit-row add-row">
-      <input type="text" id="newStaffName" placeholder="Yeni personel adı">
-      <button class="btn btn-primary small" onclick="addStaffFromForm()">${ic('user',14)} Ekle</button>
+      <input type="text" id="newStaffName" placeholder="${t('settings.newStaffName')}">
+      <button class="btn btn-primary small" onclick="addStaffFromForm()">${ic('user',14)} ${t('settings.staffAddBtn')}</button>
     </div>
   `;
   document.getElementById('staffSettingsList').innerHTML =
-    (settings.staff.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">Henüz personel eklenmedi.</div>`)
+    (settings.staff.length ? rowsHtml : `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">${t('settings.noStaffYetInline')}</div>`)
     + addRowHtml;
 }
 function addStaffFromForm(){
   const nameInput = document.getElementById('newStaffName');
   const name = (nameInput.value||'').trim();
-  if(!name){ showToast('Personel adı boş olamaz.'); return; }
+  if(!name){ showToast(t('toast.staffNameEmpty')); return; }
   const dup = settings.staff.some(s=> s.label.trim().toLowerCase() === name.toLowerCase());
-  if(dup){ showToast('Bu isimde bir personel zaten var.'); return; }
+  if(dup){ showToast(t('toast.staffDup')); return; }
   const key = 'staff_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   settings.staff.push({key, label:name});
   saveSettings();
   renderStaffSettings();
-  showToast('Personel eklendi: ' + name);
+  showToast(tf('toast.staffAdded', {name}));
 }
 function deleteStaff(key){
   const s = settings.staff.find(x=>x.key===key);
   if(!s) return;
-  askConfirm(`"${s.label}" adlı personeli silmek istediğinize emin misiniz? Geçmiş kayıtlar etkilenmez.`, function(){
+  askConfirm(tf('confirm.deleteStaff', {name: s.label}), function(){
     settings.staff = settings.staff.filter(x=>x.key!==key);
     if(activeStaffKey===key){ activeStaffKey=null; saveActiveStaff(); renderStaffPill(); }
     saveSettings();
     renderStaffSettings();
-    showToast('Personel silindi.');
-  }, 'Personeli Sil');
+    showToast(t('toast.staffDeleted'));
+  }, t('confirm.deleteStaffTitle'));
 }
 
 /* ---- Üst bardaki vardiya rozeti ve seçim modalı ---- */
@@ -2434,9 +2820,9 @@ function openStaffModal(){
   if(settings.staff.length===0){
     body.innerHTML = `
       <div style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.5">
-        Henüz personel eklenmedi. Ayarlar &gt; Personel bölümünden ekleyebilirsiniz.
+        ${t('staff.noStaffYet')}
       </div>
-      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayStaff'); switchTab('settings')">Ayarlara Git</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('overlayStaff'); switchTab('settings')">${t('staff.goToSettings')}</button>
     `;
   }else{
     body.innerHTML = settings.staff.map(s=>`
@@ -2456,7 +2842,7 @@ function selectStaff(key){
   saveActiveStaff();
   renderStaffPill();
   closeModal('overlayStaff');
-  showToast(key ? ('Vardiya: ' + activeStaffName()) : 'Vardiya belirtilmedi.');
+  showToast(key ? tf('toast.shiftSet', {name: activeStaffName()}) : t('toast.shiftNone'));
 }
 
 /* ================================================================
@@ -2480,8 +2866,8 @@ function renderCloudSettingsForm(){
   const lastEl = document.getElementById('cloudLastSync');
   if(lastEl){
     lastEl.innerText = settings.cloud.lastSyncAt
-      ? ('Son senkronizasyon: ' + new Date(settings.cloud.lastSyncAt).toLocaleString('tr-TR'))
-      : 'Henüz senkronize edilmedi.';
+      ? tf('cloud.lastSync', {date: new Date(settings.cloud.lastSyncAt).toLocaleString('tr-TR')})
+      : t('cloud.neverSynced');
   }
 }
 function saveCloudSettings(){
@@ -2489,12 +2875,12 @@ function saveCloudSettings(){
   settings.cloud.apiKey = document.getElementById('cloudApiKey').value.trim();
   settings.cloud.autoSync = document.getElementById('cloudAutoSync').checked;
   saveSettings();
-  showToast('Bulut ayarları kaydedildi.');
+  showToast(t('toast.cloudSettingsSaved'));
 }
 async function cloudUpload(showMsg){
   if(showMsg===undefined) showMsg = true;
   const binId = settings.cloud.binId, apiKey = settings.cloud.apiKey;
-  if(!binId || !apiKey){ if(showMsg) showToast('Önce Bulut Yedekleme bilgilerini girip kaydedin.'); return; }
+  if(!binId || !apiKey){ if(showMsg) showToast(t('toast.cloudFieldsMissing')); return; }
   try{
     const backup = {
       appName:'GameCenterYonetim', backupVersion:1, exportedAt:new Date().toISOString(),
@@ -2509,15 +2895,15 @@ async function cloudUpload(showMsg){
     settings.cloud.lastSyncAt = new Date().toISOString();
     safeSet(LS_SETTINGS, settings); // maybeAutoCloudSync'i tekrar tetiklemeden doğrudan kaydet
     renderCloudSettingsForm();
-    if(showMsg) showToast('☁️ Buluta yedeklendi.');
+    if(showMsg) showToast(t('toast.cloudUploaded'));
   }catch(e){
     console.warn('Bulut yükleme hatası', e);
-    if(showMsg) showToast('Buluta yükleme başarısız. Bin ID / API anahtarını ve bağlantıyı kontrol edin.');
+    if(showMsg) showToast(t('toast.cloudUploadFailed'));
   }
 }
 async function cloudDownload(){
   const binId = settings.cloud.binId, apiKey = settings.cloud.apiKey;
-  if(!binId || !apiKey){ showToast('Önce Bulut Yedekleme bilgilerini girip kaydedin.'); return; }
+  if(!binId || !apiKey){ showToast(t('toast.cloudFieldsMissing')); return; }
   try{
     const res = await fetch('https://api.jsonbin.io/v3/b/' + binId + '/latest', {
       headers:{ 'X-Master-Key': apiKey }
@@ -2526,20 +2912,20 @@ async function cloudDownload(){
     const json = await res.json();
     const data = json.record;
     if(!data || typeof data !== 'object' || !data.settings || !Array.isArray(data.stations) || !Array.isArray(data.sessions)){
-      showToast('Buluttaki veri geçerli bir yedek gibi görünmüyor.');
+      showToast(t('toast.cloudInvalidData'));
       return;
     }
     askConfirm(
-      'Buluttaki yedeği geri yüklersen mevcut tüm veriler (konsollar, geçmiş, ayarlar) bu yedekteki verilerle DEĞİŞTİRİLECEK. Bu işlem geri alınamaz. Devam edilsin mi?',
+      t('confirm.cloudRestore'),
       function(){
         applyRestoredData(data);
-        showToast('☁️ Bulut yedeği geri yüklendi.');
+        showToast(t('toast.cloudRestored'));
       },
-      'Buluttan Geri Yükle'
+      t('confirm.cloudRestoreTitle')
     );
   }catch(e){
     console.warn('Bulut indirme hatası', e);
-    showToast('Buluttan indirme başarısız. Bin ID / API anahtarını ve bağlantıyı kontrol edin.');
+    showToast(t('toast.cloudDownloadFailed'));
   }
 }
 document.getElementById('logoInput').addEventListener('change', function(e){
@@ -2551,7 +2937,7 @@ document.getElementById('logoInput').addEventListener('change', function(e){
     saveSettings();
     updateLogoPreview();
   };
-  reader.onerror = function(){ showToast('Logo yüklenemedi.'); };
+  reader.onerror = function(){ showToast(t('toast.logoFailed')); };
   reader.readAsDataURL(file);
 });
 
@@ -2589,10 +2975,10 @@ function exportBackup(){
     document.body.removeChild(a);
     setTimeout(()=> URL.revokeObjectURL(url), 3000);
 
-    showToast('Yedek indirildi: ' + filename);
+    showToast(tf('toast.backupDownloaded', {name: filename}));
   }catch(e){
     console.warn('Yedekleme hatası:', e);
-    showToast('Yedekleme başarısız oldu.');
+    showToast(t('toast.backupFailed'));
   }
 }
 
@@ -2605,27 +2991,27 @@ document.getElementById('restoreInput').addEventListener('change', function(e){
     try{
       data = JSON.parse(ev.target.result);
     }catch(err){
-      showToast('Geçersiz yedek dosyası (JSON okunamadı).');
+      showToast(t('toast.backupInvalidJson'));
       e.target.value = '';
       return;
     }
     // Temel doğrulama: beklenen alanlar var mı?
     if(!data || typeof data !== 'object' || !data.settings || !Array.isArray(data.stations) || !Array.isArray(data.sessions)){
-      showToast('Bu dosya geçerli bir yedek gibi görünmüyor.');
+      showToast(t('toast.backupInvalidFile'));
       e.target.value = '';
       return;
     }
     askConfirm(
-      'Bu yedeği geri yüklersen mevcut tüm veriler (konsollar, geçmiş, ayarlar) bu yedekteki verilerle DEĞİŞTİRİLECEK. Bu işlem geri alınamaz. Devam edilsin mi?',
+      t('confirm.fileRestore'),
       function(){
         applyRestoredData(data);
-        showToast('Yedek başarıyla geri yüklendi.');
+        showToast(t('toast.backupRestored'));
       },
-      'Yedeği Geri Yükle'
+      t('confirm.fileRestoreTitle')
     );
     e.target.value = ''; // aynı dosyayı tekrar seçebilmek için sıfırla
   };
-  reader.onerror = function(){ showToast('Dosya okunamadı.'); };
+  reader.onerror = function(){ showToast(t('toast.fileReadFailed')); };
   reader.readAsText(file);
 });
 
@@ -2681,7 +3067,7 @@ function closeModal(id){ document.getElementById(id).classList.remove('show'); }
    standalone modunda window.confirm() güvenilir şekilde çalışmayabiliyor) ---- */
 let _confirmCallback = null;
 function askConfirm(message, onYes, title){
-  document.getElementById('confirmTitle').innerText = title || 'Emin misiniz?';
+  document.getElementById('confirmTitle').innerText = title || t('modal.confirmTitle');
   document.getElementById('confirmBody').innerText = message;
   _confirmCallback = onYes;
   openModal('overlayConfirm');
@@ -2760,11 +3146,11 @@ function checkPackageWarnings(){
     if(rem <= 0 && !warnedStations.has(st.id+'-over')){
       warnedStations.add(st.id+'-over');
       playBeep();
-      showToast(`⏰ ${st.name}: Paket süresi doldu!`);
+      showToast(tf('toast.packageExpired', {name: st.name}));
     }else if(rem > 0 && rem <= 300 && !warnedStations.has(st.id+'-warn')){
       warnedStations.add(st.id+'-warn');
       playBeep();
-      showToast(`⏳ ${st.name}: Paket süresine 5 dakika kaldı.`);
+      showToast(tf('toast.packageWarning5min', {name: st.name}));
     }
   });
 }
